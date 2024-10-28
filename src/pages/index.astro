@@ -35,6 +35,11 @@ const socials = [
       <div class="info">
         <h1>Lucas Nouguier</h1>
         <h2>Fullstack & Scala Software Engineer</h2>
+        <div class="inner-links">
+          <a href="#about-me" class="outline">About me</a>
+          <a href="#skills" class="outline">Main Skills</a>
+          <a href="#other-skills" class="outline">Other Skills</a>
+        </div>
         <!-- <h4><Icon name="mdi:home"/> Montpellier, France</h4>
         <h4><Icon name="mdi:language"/>French (Native), English (Advanced)</h4> -->
       </div>
@@ -186,11 +191,16 @@ const socials = [
           One day I ended up using 450Gb (out of 500Gb) of disk space with only
           Docker images. That's were I learnt about the necesity of regularly
           cleaning the cache and having multi-stage <InlineCode
-            >Dockerfile</InlineCode>
+            >Dockerfile</InlineCode
+          >
         </p>
       </SkillCard>
+    </section>
 
-      <h2 class="top-bar">Others</h2>
+    <Line width_percent="80%"/>
+
+    <section id="other-skills">
+      <h1>Others skills</h1>
       <p>
         The following skills are present because I have at least basic knowledge
       </p>
@@ -266,6 +276,20 @@ const socials = [
 <style>
   :root {
     --padding: 1rem;
+  }
+
+  .inner-links {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  .outline {
+    font-size: 2rem;
+    border: 2px solid var(--accent);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    transition: all 0.5s ease;
   }
 
   .other-skills {
@@ -355,7 +379,8 @@ const socials = [
     scrollbar-color: var(--accent) var(--background);
   }
 
-  #skills svg {
+  #skills svg,
+  #other-skills svg {
     width: 4rem;
     height: 4rem;
   }
