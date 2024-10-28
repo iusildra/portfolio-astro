@@ -10,6 +10,9 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  ENV: production
+
 jobs:
   build:
     runs-on: ubuntu-latest
