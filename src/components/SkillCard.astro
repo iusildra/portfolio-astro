@@ -1,0 +1,56 @@
+---
+interface Props {
+  name: string;
+  reverse?: boolean;
+}
+const { name, reverse } = Astro.props;
+
+const cssWrapReverse = reverse ? "row-reverse" : "row";
+const cssAlignReverse = reverse ? "end" : "flex-start";
+const cssGradientDirection = reverse ? "to left" : "to right";
+---
+
+<div
+  class="skill-card"
+  style=`--wrap-direction:${cssWrapReverse}; --align:${cssAlignReverse}; --gradient-direction:${cssGradientDirection}`
+>
+  <div class="logo" style=`margin-left: ${reverse && '2rem'}; margin-right: ${!reverse && '2rem'}`>
+    <slot name="skill-logo"/>
+  </div>
+  <div class="description">
+    <h3>{name}</h3>
+    <slot />
+  </div>
+</div>
+
+<style>
+  .skill-card {
+    margin: 2rem 0 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: var(--wrap-direction);
+    /* background: linear-gradient(
+      var(--gradient-direction),
+      var(--background) 10%,
+      var(--background-light) 15%,
+      var(--background) 70%
+    ); */
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .description {
+    flex: 1 1 0;
+    min-width: 256px;
+    text-align: var(--align);
+  }
+</style>

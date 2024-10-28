@@ -1,0 +1,12 @@
+<div class="hero">
+  <slot name="hero"/>
+</div>
+
+<style>
+  .hero {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 2rem - 2 * var(--padding));
+  }
+</style>

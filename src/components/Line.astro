@@ -1,0 +1,14 @@
+---
+const { width_percent = '60%' } = Astro.props;
+---
+
+<div class="line-sep" style=`--line-width: ${width_percent}`></div>
+
+<style>
+  .line-sep {
+    width: var(--line-width);
+    margin: 4rem auto;
+    height: 4px;
+    background-color: var(--accent);
+  }
+</style>

@@ -1,0 +1,32 @@
+---
+interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+---
+
+<div class="skill-logo">
+  <div class="logo">
+    <slot name="skill-logo"/>
+  </div>
+  <p>{name}</p>
+</div>
+
+<style>
+  .skill-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  p {
+    margin: 0;
+    font-size: 0.75em;
+  }
+</style>
