@@ -22,7 +22,6 @@ jobs:
         uses: withastro/action@v3
         with:
           package-manager: pnpm@latest
-      - run: ls -l
 
   deploy:
     needs: build
