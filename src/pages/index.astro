@@ -1,13 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import PP from "../images/me.webp";
+import PP from "../images/me.png";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import Line from "../components/Line.astro";
 import Cowsay from "../components/pre/Cowsay.astro";
-import SkillCard from "../components/SkillCard.astro";
-import InlineCode from "../components/InlineCode.astro";
-import SkillLogo from "../components/SkillLogo.astro";
+import Link from "../components/elements/Link.astro";
 
 const socials = [
   { icon: "mdi:github", href: "https://github.com/iusildra" },
@@ -17,37 +15,41 @@ const socials = [
 ];
 ---
 
+<script>
+  import { sequencedTransitions } from "../utils/Transitions";
+
+  sequencedTransitions(document.querySelectorAll("#me > div")!, "appear");
+</script>
+
 <Layout title="Lucas Nouguier's Portfolio">
-  <section slot="hero">
-    <div class="me">
-      <div class="photo">
-        <Image src={PP} alt="Profile picture" />
-        <div class="links">
-          {
-            socials.map(({ icon, href }) => (
-              <a href={href} target="_blank">
-                <Icon name={icon} />
-              </a>
-            ))
-          }
-        </div>
+  <section slot="hero" id="me">
+    <div class="photo" id="photo-and-links">
+      <Image src={PP} alt="Profile picture" />
+      <div class="links">
+        {
+          socials.map(({ icon, href }) => (
+            <a href={href} target="_blank">
+              <Icon name={icon} />
+            </a>
+          ))
+        }
       </div>
-      <div class="info">
-        <h1>Lucas Nouguier</h1>
-        <h2>Fullstack & Scala Software Engineer</h2>
-        <div class="inner-links">
-          <a href="#about-me" class="outline">About me</a>
-          <a href="#skills" class="outline">Main Skills</a>
-          <a href="#other-skills" class="outline">Other Skills</a>
-        </div>
-        <!-- <h4><Icon name="mdi:home"/> Montpellier, France</h4>
-        <h4><Icon name="mdi:language"/>French (Native), English (Advanced)</h4> -->
+    </div>
+    <div class="my-info" id="my-info">
+      <h1>Lucas Nouguier</h1>
+      <h2>Fullstack & Scala Software Engineer</h2>
+      <h3>
+        FP preacher, Refactor frenzyness, Keyboard enthusiast, CLI addict, and
+        lots of other red flags 🚩... (or very dark pink 👚)
+      </h3>
+      <div class="inner-links">
+        <Link link="#about-me" kind={"outline"}>About me</Link>
       </div>
     </div>
   </section>
 
   <main>
-    <Line width_percent="80%" />
+    <Line width="80%" />
 
     <section id="about-me">
       <div class="bio">
@@ -72,210 +74,13 @@ const socials = [
       <Cowsay />
     </section>
 
-    <Line width_percent="80%" />
-
-    <section id="skills">
-      <h1>Skills</h1>
-
-      <h2 class="top-bar">Paradigms</h2>
-      <SkillCard name="Functional Programming">
-        <Icon slot="skill-logo" name="mdi:lambda" width="4rem" height="4rem" />
-        <p>
-          I discovered the functional paradigm not so long ago (in 2022) with <a
-            href="https://scala-lang.org/"
-            target="_blank">Scala</a
-          > and loved the mindset and the safety it provides through idempotency,
-          re-producibility and statelessness. Now most of my code has a functional
-          approach except some rare cases where it hurts me to admit it but the imperative
-          way better fits the needs
-        </p>
-      </SkillCard>
-      <SkillCard name="Object Oriented Programming" reverse={true}>
-        <Icon slot="skill-logo" name="mdi:rabbit" width="4rem" height="4rem" />
-        <p>
-          What got me into programming, I started to toy with some turtles (<a
-            href="https://www.kogics.net/kojo"
-            target="_blank">Kojo</a
-          >) to draw weird things (I'm not good as an artist, sorry if the
-          colors burn your eyes ^^'). After that I started a MOOC on Coursera on
-          Java & OOP at ~14y.o. Did you get the rabbit ? :)
-        </p>
-      </SkillCard>
-
-      <h2 class="top-bar">Languages</h2>
-      <SkillCard name="Scala">
-        <Icon slot="skill-logo" name="logos:scala" />
-        <p>
-          The language I'm the most confortable with (and IMO one of the best of
-          all time, but I might be biased...), with which I discovered both FP &
-          open-source worlds. I particularly enjoy its clean syntax and
-          conciseness & expressivity and the way it makes reasonning easier for
-          non-simple logics. And latest development of the language made it even
-          more simplier to use as a standalone script
-        </p>
-      </SkillCard>
-      <SkillCard name="Typescript" reverse={true}>
-        <Icon slot="skill-logo" name="logos:typescript-icon" />
-        <p>
-          Nice language with which I recently re-discovered what it is do to
-          frontend development. Used to having only CRUDs and forms (which was
-          very fun the first time I did it, but after doing it 5 times, well, I
-          didn't want to do fronted anymore)
-        </p>
-      </SkillCard>
-      <SkillCard name="Java">
-        <Icon slot="skill-logo" name="logos:java" />
-        <p>My very-first language 🥰. Way too verbose but we still like him</p>
-      </SkillCard>
-      <SkillCard name="Rust" reverse={true}>
-        <Icon
-          slot="skill-logo"
-          name="logos:rust"
-          style="background-color: var(--text-color); border-radius: 50%;"
-        />
-        <p>
-          Very interesting langage. I tried it once for a small project (ok I
-          admit, I put it here for beauty) and tried to fight with the
-          borrow-checker. Morality: you <b>do not</b> fight with the borrow-checker.
-          It'll always win. Always (and that's good, though frustrating at first)
-        </p>
-      </SkillCard>
-
-      <h2 class="top-bar">Databases</h2>
-      <SkillCard name="PostgreSQL">
-        <Icon slot="skill-logo" name="logos:postgresql" />
-        <p>🐘</p>
-      </SkillCard>
-      <SkillCard name="MySQL" reverse={true}>
-        <Icon slot="skill-logo" name="logos:mysql" />
-        <p>🐬</p>
-      </SkillCard>
-
-      <h2 class="top-bar">Dev Tools</h2>
-      <SkillCard name="Git">
-        <Icon slot="skill-logo" name="logos:git-icon" />
-        <p>
-          As said before I love using CLIs. Using the CLI for every single step
-          in Git (ok, not for adding a single file to the stage tree) allowed me
-          to master the common flows 🪄 (though I sometimes learnt the hard way
-          that if there's a doc, it not for prettiness)
-        </p>
-      </SkillCard>
-      <SkillCard name="GitHub" reverse={true}>
-        <Icon
-          slot="skill-logo"
-          name="logos:github-icon"
-          style="background-color: var(--text-color); border: 2px solid var(--text-color); border-radius: 50%;"
-        />
-        <p>
-          Since the beginning I only used GitHub (no GitLab, yet it's just a
-          different tool)
-        </p>
-      </SkillCard>
-      <SkillCard name="GitHub Actions">
-        <Icon
-          slot="skill-logo"
-          name="logos:github-icon"
-          style="background-color: var(--text-color); border: 2px solid var(--text-color); border-radius: 50%;"
-        />
-        <p>
-          Did some workflows for auto-publishing a webiste or for a full CI
-          pipeline. And as every CI/CD environment the local reproducibility is
-          not always great and the conditional could be reworked a bit (e.g. to
-          include cleaner ternary). Still it's pretty nice to use.
-        </p>
-      </SkillCard>
-      <SkillCard name="Docker" reverse={true}>
-        <Icon slot="skill-logo" name="logos:docker-icon" />
-        <p>
-          One day I ended up using 450Gb (out of 500Gb) of disk space with only
-          Docker images. That's were I learnt about the necesity of regularly
-          cleaning the cache and having multi-stage <InlineCode
-            >Dockerfile</InlineCode
-          >
-        </p>
-      </SkillCard>
-    </section>
-
-    <Line width_percent="80%"/>
-
-    <section id="other-skills">
-      <h1>Others skills</h1>
-      <p>
-        The following skills are present because I have at least basic knowledge
-      </p>
-
-      <h3>Languages</h3>
-      <div class="other-skills">
-        <SkillLogo name="Terraform">
-          <Icon slot="skill-logo" name="logos:terraform-icon" />
-        </SkillLogo>
-        <SkillLogo name="JavaScript">
-          <Icon slot="skill-logo" name="logos:javascript" />
-        </SkillLogo>
-      </div>
-
-      <h3>HTTP Protocols</h3>
-      <div class="other-skills">
-        <SkillLogo name="gRPC">
-          <Icon slot="skill-logo" name="logos:grpc" />
-        </SkillLogo>
-        <SkillLogo name="GraphQL">
-          <Icon slot="skill-logo" name="logos:graphql" />
-        </SkillLogo>
-        <SkillLogo name="REST">
-          <Icon slot="skill-logo" name="logos:json-schema-icon" />
-        </SkillLogo>
-      </div>
-
-      <h3>Frontend Frameworks</h3>
-      <div class="other-skills">
-        <SkillLogo name="React">
-          <Icon slot="skill-logo" name="logos:react" />
-        </SkillLogo>
-        <SkillLogo name="Vue">
-          <Icon slot="skill-logo" name="logos:vue" />
-        </SkillLogo>
-        <SkillLogo name="Svelte">
-          <Icon slot="skill-logo" name="logos:svelte-icon" />
-        </SkillLogo>
-      </div>
-
-      <h3>Cloud</h3>
-      <div class="other-skills">
-        <SkillLogo name="AWS">
-          <Icon slot="skill-logo" name="logos:aws" />
-        </SkillLogo>
-        <SkillLogo name="AWS S3">
-          <Icon slot="skill-logo" name="logos:aws-s3" />
-        </SkillLogo>
-        <SkillLogo name="Grafana & Loki">
-          <Icon slot="skill-logo" name="logos:grafana" />
-        </SkillLogo>
-        <SkillLogo name="Kibana">
-          <Icon slot="skill-logo" name="logos:kibana" />
-        </SkillLogo>
-      </div>
-
-      <h3>Not relevant, but pretty 🙂</h3>
-      <div class="other-skills">
-        <SkillLogo name="Linux">
-          <Icon slot="skill-logo" name="logos:linux-tux" />
-        </SkillLogo>
-        <SkillLogo name="Archlinux">
-          <Icon slot="skill-logo" name="logos:archlinux" />
-        </SkillLogo>
-        <SkillLogo name="VSCode">
-          <Icon slot="skill-logo" name="logos:visual-studio-code" />
-        </SkillLogo>
-      </div>
-    </section>
+    <Line />
   </main>
 </Layout>
 
 <style>
-  :root {
-    --padding: 1rem;
+  h1 {
+    text-align: center;
   }
 
   .inner-links {
@@ -283,33 +88,8 @@ const socials = [
     flex-wrap: wrap;
     width: 100%;
     justify-content: space-evenly;
-  }
-  .outline {
-    font-size: 2rem;
-    border: 2px solid var(--accent);
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    transition: all 0.5s ease;
-  }
-
-  .other-skills {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 1rem;
-  }
-  .top-bar {
-    position: relative;
-  }
-
-  .top-bar::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 60%;
-    height: 0.25rem;
-    background-color: var(--text-color);
+    row-gap: 2em;
+    column-gap: 2em;
   }
 
   .funny-quote {
@@ -331,25 +111,49 @@ const socials = [
     overflow-x: auto;
   }
 
-  .me {
+  #me {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
 
+    .photo,
+    .my-info {
+      opacity: 0;
+      transition:
+        opacity 1s ease,
+        transform 1s ease;
+      &.appear {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
     .photo {
-      flex: 1 1 25%;
+      flex: 1 1 40%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       gap: 2rem;
+      transform: translateX(-100%);
     }
 
-    .info {
-      flex: 1 1 70%;
+    .my-info {
+      flex: 1 1 calc(60% - 2rem);
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: space-between;
+      transform: translateX(100%);
+
+      h1,
+      h2,
+      h3,
+      & > div {
+        text-align: left;
+        margin: 1rem;
+        width: 100%;
+      }
     }
 
     .links {
@@ -367,39 +171,9 @@ const socials = [
       width: 400px;
       height: auto;
       border-radius: 50%;
-
       max-width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
     }
-  }
-
-  #skills p {
-    margin: 0.25em;
-    max-height: 200px;
-    overflow-y: scroll;
-    scrollbar-color: var(--accent) var(--background);
-  }
-
-  #skills svg,
-  #other-skills svg {
-    width: 4rem;
-    height: 4rem;
-  }
-
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  h2 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 0.75em;
-  }
-  h3 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 0.5em;
   }
 </style>

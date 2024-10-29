@@ -1,0 +1,29 @@
+---
+type LinkClass = "outline";
+interface Props {
+  link: string;
+  kind: LinkClass;
+}
+
+const { link, kind } = Astro.props;
+
+const css = (() => {
+  switch (kind) {
+    case "outline":
+      return "outline";
+    default:
+      return "";
+  }
+})();
+---
+
+<a href={link} class={css}><slot /></a>
+
+<style>
+  .outline {
+    border: 2px solid var(--accent);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    transition: all 0.5s ease;
+  }
+</style>
