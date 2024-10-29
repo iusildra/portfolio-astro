@@ -1,11 +1,40 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import PP from "../images/me.png";
+import PP from "../images/me.webp";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import Line from "../components/Line.astro";
 import Cowsay from "../components/pre/Cowsay.astro";
 import Link from "../components/elements/Link.astro";
+import BikeAlps from "../images/hobbies/bike-alps.webp";
+import BikeBern from "../images/hobbies/bike-bern.webp";
+import BikeCamp from "../images/hobbies/bike-camp.webp";
+import BikeTravel from "../images/hobbies/bike-travel.webp";
+import BikeDam from "../images/hobbies/bike-dam.webp";
+import BikeCanal from "../images/hobbies/bike-canal.webp";
+import Alps from "../images/hobbies/alps.webp";
+import Camp from "../images/hobbies/camp.webp";
+import Mordor from "../images/hobbies/mordor.webp";
+import MountainGoat from "../images/hobbies/mountain-goat.webp";
+import Shroom from "../images/hobbies/shroom.webp";
+import ViaFerrata from "../images/hobbies/via-ferrata.webp";
+import Wandering from "../images/hobbies/wandering.webp";
+import Astro1 from "../images/hobbies/astro-1.webp";
+import Astro2 from "../images/hobbies/astro-2.webp";
+import Bee1 from "../images/hobbies/bee1.webp";
+import Bee2 from "../images/hobbies/bee2.webp";
+import Cow from "../images/hobbies/cow.webp";
+import Swan from "../images/hobbies/swan.webp";
+import Horses from "../images/hobbies/horses.webp";
+import Buns from "../images/hobbies/buns.webp";
+import Canneles from "../images/hobbies/canneles.webp";
+import Cheesecake from "../images/hobbies/cheesecake.webp";
+import CinamonBalls from "../images/hobbies/cinamon-balls.webp";
+import CinamonRolls from "../images/hobbies/cinamon-rolls.webp";
+import Dough from "../images/hobbies/dough.webp";
+import Loukoum from "../images/hobbies/loukoum.webp";
+import Naans from "../images/hobbies/naans.webp";
+import sirup from "../images/hobbies/sirup.webp";
 
 const socials = [
   { icon: "mdi:github", href: "https://github.com/iusildra" },
@@ -13,6 +42,8 @@ const socials = [
   { icon: "mdi:twitter", href: "https://twitter.com/LucasNouguier" },
   { icon: "mdi:alternate-email", href: "mailto:portfolio.owy6d@passmail.net" },
 ];
+
+const defaultWidthPX = 512;
 ---
 
 <script>
@@ -44,6 +75,7 @@ const socials = [
       </h3>
       <div class="inner-links">
         <Link link="#about-me" kind={"outline"}>About me</Link>
+        <Link link="#hobbies" kind={"outline"}>My Hobbies</Link>
       </div>
     </div>
   </section>
@@ -75,11 +107,85 @@ const socials = [
     </section>
 
     <Line />
+
+    <section id="hobbies">
+      <h1>Hobbies</h1>
+
+      <h2>Bike</h2>
+      <div class="hobby">
+        <Image src={BikeAlps} alt="Bike with the Alps" width={defaultWidthPX} />
+        <Image src={BikeBern} alt="Bike at Bern" width={defaultWidthPX} />
+        <Image src={BikeTravel} alt="Bike loaded" width={defaultWidthPX} />
+        <Image src={BikeCamp} alt="Bike & hammoc" width={defaultWidthPX} />
+        <Image src={BikeDam} alt="Bike on a dam" width={defaultWidthPX} />
+        <Image
+          src={BikeCanal}
+          alt="Bike between waterways"
+          width={defaultWidthPX}
+        />
+      </div>
+
+      <h2>Outdoors</h2>
+      <div class="hobby">
+        <Image src={Alps} alt="Alps" width={defaultWidthPX} />
+        <Image src={Camp} alt="Camp" width={defaultWidthPX} />
+        <Image src={MountainGoat} alt="Mountain goat" width={defaultWidthPX} />
+        <Image src={Shroom} alt="Mushroom" width={defaultWidthPX} />
+        <Image src={ViaFerrata} alt="Via ferrata" width={defaultWidthPX} />
+        <Image src={Wandering} alt="Wandering" width={defaultWidthPX} />
+      </div>
+
+      <h2>Photo</h2>
+      <div class="hobby">
+        <Image
+          src={Astro1}
+          alt="Stars"
+          width={defaultWidthPX}
+          class="hobby-2-row"
+        />
+        <Image src={Cow} alt="Cow" width={defaultWidthPX} />
+        <Image
+          src={Bee2}
+          alt="Bee"
+          width={defaultWidthPX}
+          class="hobby-2-row"
+        />
+        <Image src={Mordor} alt="Welcome to mordor" width={defaultWidthPX} />
+        <Image
+          src={Swan}
+          alt="Swan"
+          width={defaultWidthPX}
+          class="hobby-2-row"
+        />
+        <Image src={Astro2} alt="Stars" width={defaultWidthPX} />
+        <Image
+          src={Horses}
+          alt="Horses"
+          width={defaultWidthPX}
+          class="hobby-2-row"
+        />
+        <Image src={Bee1} alt="Bee" width={defaultWidthPX} />
+      </div>
+
+      <h2>Coocking</h2>
+      <div class="hobby">
+        <Image src={Buns} alt="Buns" width={defaultWidthPX} class="hobby-2-row"/>
+        <Image src={Cheesecake} alt="Cheesecake" width={defaultWidthPX} class="hobby-2-row"/>
+        <Image src={CinamonBalls} alt="Cinamon balls" width={defaultWidthPX} class="hobby-2-row"/>
+        <Image src={Canneles} alt="Canneles" width={defaultWidthPX} />
+        <Image src={CinamonRolls} alt="Cinamon rolls" width={defaultWidthPX} />
+        <Image src={Dough} alt="Dough" width={defaultWidthPX} />
+        <Image src={Loukoum} alt="Loukoum" width={defaultWidthPX} />
+        <Image src={Naans} alt="Naans" width={defaultWidthPX} />
+        <Image src={sirup} alt="Sirup" width={defaultWidthPX} />
+      </div>
+    </section>
   </main>
 </Layout>
 
 <style>
-  h1 {
+  h1,
+  h2 {
     text-align: center;
   }
 
@@ -175,5 +281,34 @@ const socials = [
       aspect-ratio: 1 / 1;
       object-fit: cover;
     }
+  }
+
+  #hobbies {
+    img {
+      max-width: min(512px, 100%);
+      width: auto;
+      height: auto;
+    }
+
+    .hobby {
+      display: grid;
+      grid-template: auto / repeat(auto-fill, minmax(256px, 1fr));
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .hobby-2-row {
+      grid-row: span 2;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* .hobby-2-square {
+      grid-column: span 2;
+      grid-row: span 2;
+      object-fit: cover;
+      width: 100%;
+    } */
   }
 </style>
