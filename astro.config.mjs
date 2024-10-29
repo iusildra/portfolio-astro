@@ -4,7 +4,7 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://iusildra.github.io/portfolio-astro",
+  site: "https://iusildra.github.io",
   base: process.env.ENV == "production" ? "portfolio-astro" : "",
   integrations: [icon()],
 });
