@@ -1,0 +1,30 @@
+---
+import Line from "../components/Line.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Projects">
+  <section slot="hero" id="page-header">
+    <h1>Projects</h1>
+  </section>
+
+  <Line width="100%" />
+
+  <main>
+    <section id="projects">
+      <h1>Portfolio</h1>
+
+      <Line />
+
+      <h1>Scala.IO website</h1>
+
+      <Line />
+    </section>
+  </main>
+</Layout>
+
+<style>
+  h1 {
+    text-align: center;
+  }
+</style>
