@@ -1,5 +1,8 @@
 ---
-const { width = '60%' } = Astro.props;
+interface Props {
+  width?: string;
+}
+const { width = "60%" } = Astro.props;
 ---
 
 <div class="line-sep" style=`--line-width: ${width}`></div>
