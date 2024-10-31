@@ -1,6 +1,6 @@
 <div class="funny-quote">
 <pre>
-  _________________________________________ 
+   _________________________________________ 
   / One day, I'll go live in 'Theory'!      \
   | Because in Theory... EVERYTHING is fine |
   |                                         |
@@ -33,15 +33,7 @@
   .funny-quote {
     display: flex;
     justify-content: center;
-
-    @media screen and (min-width: 0px) {
-      font-size: 0.45em;
-    }
-    @media screen and (min-width: 450px) {
-      font-size: 0.75em;
-    }
-    @media screen and (min-width: 600px) {
-      font-size: 1em;
-    }
+    /* width: 100%; */
+    font-size: min(2.75vw, 1.25rem);
   }
 </style>
