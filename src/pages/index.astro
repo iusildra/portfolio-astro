@@ -66,7 +66,7 @@ const defaultWidthPX = 512;
         }
       </div>
     </div>
-    <div class="my-info" id="my-info">
+    <div id="my-info">
       <h1>Lucas Nouguier</h1>
       <h2>Fullstack & Scala Software Engineer</h2>
       <h3>
@@ -75,7 +75,7 @@ const defaultWidthPX = 512;
       </h3>
       <div class="inner-links">
         <Link link="#about-me" kind={"outline"}>About me</Link>
-        <Link link="#hobbies" kind={"outline"}>My Hobbies</Link>
+        <Link link="#hobbies" kind={"outline"}>Hobbies</Link>
       </div>
     </div>
   </section>
@@ -169,15 +169,14 @@ const defaultWidthPX = 512;
 
       <h2>Coocking</h2>
       <div class="hobby">
-        <Image src={Buns} alt="Buns" width={defaultWidthPX} class="hobby-2-row"/>
         <Image src={Cheesecake} alt="Cheesecake" width={defaultWidthPX} class="hobby-2-row"/>
-        <Image src={CinamonBalls} alt="Cinamon balls" width={defaultWidthPX} class="hobby-2-row"/>
+        <Image src={Buns} alt="Buns" width={defaultWidthPX}/>
+        <Image src={sirup} alt="Sirup" width={defaultWidthPX} class="hobby-2-row"/>
         <Image src={Canneles} alt="Canneles" width={defaultWidthPX} />
+        <Image src={CinamonBalls} alt="Cinamon balls" width={defaultWidthPX} class="hobby-2-row"/>
         <Image src={CinamonRolls} alt="Cinamon rolls" width={defaultWidthPX} />
-        <Image src={Dough} alt="Dough" width={defaultWidthPX} />
-        <Image src={Loukoum} alt="Loukoum" width={defaultWidthPX} />
+        <Image src={Loukoum} alt="Loukoum" width={defaultWidthPX} class="hobby-2-row"/>
         <Image src={Naans} alt="Naans" width={defaultWidthPX} />
-        <Image src={sirup} alt="Sirup" width={defaultWidthPX} />
       </div>
     </section>
   </main>
@@ -194,8 +193,8 @@ const defaultWidthPX = 512;
     flex-wrap: wrap;
     width: 100%;
     justify-content: space-evenly;
-    row-gap: 2em;
-    column-gap: 2em;
+    row-gap: 1em;
+    column-gap: 1em;
   }
 
   .funny-quote {
@@ -223,14 +222,13 @@ const defaultWidthPX = 512;
     gap: 2rem;
 
     .photo,
-    .my-info {
+    #my-info {
       opacity: 0;
       transition:
         opacity 1s ease,
         transform 1s ease;
       &.appear {
         opacity: 1;
-        transform: translateX(0);
       }
     }
 
@@ -242,21 +240,24 @@ const defaultWidthPX = 512;
       align-items: center;
       gap: 2rem;
       transform: translateX(-100%);
+
+      &.appear {
+        transform: translateX(0);
+      }
     }
 
-    .my-info {
+    #my-info {
       flex: 1 1 calc(60% - 2rem);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      transform: translateX(100%);
 
       h1,
       h2,
       h3,
       & > div {
-        text-align: left;
+        text-align: center;
         margin: 1rem;
         width: 100%;
       }
