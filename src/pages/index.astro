@@ -243,7 +243,7 @@ const defaultWidthPX = 512;
     }
 
     #my-info {
-      min-width: 460px; /* Hard coded for simplicity */
+      min-width: min(460px, 100%); /* Hard coded for simplicity */
       flex: 1 1 calc(60% - 2rem);
       display: flex;
       flex-direction: column;
