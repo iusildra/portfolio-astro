@@ -31,10 +31,12 @@ import Canneles from "../images/hobbies/canneles.webp";
 import Cheesecake from "../images/hobbies/cheesecake.webp";
 import CinamonBalls from "../images/hobbies/cinamon-balls.webp";
 import CinamonRolls from "../images/hobbies/cinamon-rolls.webp";
-import Dough from "../images/hobbies/dough.webp";
 import Loukoum from "../images/hobbies/loukoum.webp";
 import Naans from "../images/hobbies/naans.webp";
 import sirup from "../images/hobbies/sirup.webp";
+import config from "../config.json";
+import SkillLogo from "../components/SkillLogo.astro";
+import Trollface from "../images/Trollface.webp";
 
 const socials = [
   { icon: "mdi:github", href: "https://github.com/iusildra" },
@@ -50,9 +52,15 @@ const defaultWidthPX = 512;
   import { sequencedTransitions } from "../utils/Transitions";
 
   sequencedTransitions(document.querySelectorAll("#me > div")!, "appear");
+
+  const troll = document.querySelector("#bike-trolling")!;
+  const toggleTroll = () =>
+    troll.querySelector(".troller")!.classList.toggle("reset-troll");
+  troll.addEventListener("mouseenter", toggleTroll);
+  troll.addEventListener("mouseleave", toggleTroll);
 </script>
 
-<Layout title="Lucas Nouguier's Portfolio">
+<Layout title={config.index.title}>
   <section slot="hero" id="me">
     <div class="photo" id="photo-and-links">
       <Image src={PP} alt="Profile picture" />
@@ -65,6 +73,11 @@ const defaultWidthPX = 512;
           ))
         }
       </div>
+      <Link
+        id="cv-link"
+        link="https://github.com/iusildra/CV/blob/master/cv/CV.pdf"
+        kind="outline">View my CV</Link
+      >
     </div>
     <div id="my-info">
       <h1>Lucas Nouguier</h1>
@@ -74,8 +87,8 @@ const defaultWidthPX = 512;
         lots of other red flags 🚩... (or very dark pink 👚)
       </h3>
       <div class="inner-links">
-        <Link link="#about-me" kind={"outline"}>About me</Link>
-        <Link link="#hobbies" kind={"outline"}>Hobbies</Link>
+        <Link link="#about-me" kind="outline">About</Link>
+        <Link link="#hobbies" kind="outline">Hobbies</Link>
       </div>
     </div>
   </section>
@@ -103,6 +116,42 @@ const defaultWidthPX = 512;
       <Line />
 
       <Cowsay />
+    </section>
+
+    <Line />
+
+    <section id="eduction">
+      <h1>Education</h1>
+
+      <h2>Engineering Degree in Computer Science</h2>
+
+      <p>TO FILL :)</p>
+    </section>
+
+    <Line />
+
+    <section id="certificates">
+      <h1>Certificates</h1>
+
+      <div class="certs">
+        <SkillLogo name="TOEIC">
+          <Icon slot="skill-logo" name="mdi:book-open-variant" />
+        </SkillLogo>
+        <SkillLogo name="First aids">
+          <Icon slot="skill-logo" name="mdi:first-aid-kit" />
+        </SkillLogo>
+        <SkillLogo name="Driving license">
+          <Icon slot="skill-logo" name="mdi:car" />
+        </SkillLogo>
+        <div class="trolling" id="bike-trolling">
+          <SkillLogo name="City Biking license">
+            <Icon slot="skill-logo" name="mdi:bike" />
+          </SkillLogo>
+          <div class="troller">
+            <Image src={Trollface} alt="Trollface" width={64} />
+          </div>
+        </div>
+      </div>
     </section>
 
     <Line />
@@ -168,13 +217,33 @@ const defaultWidthPX = 512;
 
       <h2>Cooking</h2>
       <div class="hobby">
-        <Image src={Cheesecake} alt="Cheesecake" width={defaultWidthPX} class="hobby-2-row"/>
-        <Image src={Buns} alt="Buns" width={defaultWidthPX}/>
-        <Image src={sirup} alt="Sirup" width={defaultWidthPX} class="hobby-2-row"/>
+        <Image
+          src={Cheesecake}
+          alt="Cheesecake"
+          width={defaultWidthPX}
+          class="hobby-2-row"
+        />
+        <Image src={Buns} alt="Buns" width={defaultWidthPX} />
+        <Image
+          src={sirup}
+          alt="Sirup"
+          width={defaultWidthPX}
+          class="hobby-2-row"
+        />
         <Image src={Canneles} alt="Canneles" width={defaultWidthPX} />
-        <Image src={CinamonBalls} alt="Cinamon balls" width={defaultWidthPX} class="hobby-2-row"/>
+        <Image
+          src={CinamonBalls}
+          alt="Cinamon balls"
+          width={defaultWidthPX}
+          class="hobby-2-row"
+        />
         <Image src={CinamonRolls} alt="Cinamon rolls" width={defaultWidthPX} />
-        <Image src={Loukoum} alt="Loukoum" width={defaultWidthPX} class="hobby-2-row"/>
+        <Image
+          src={Loukoum}
+          alt="Loukoum"
+          width={defaultWidthPX}
+          class="hobby-2-row"
+        />
         <Image src={Naans} alt="Naans" width={defaultWidthPX} />
       </div>
     </section>
@@ -249,13 +318,14 @@ const defaultWidthPX = 512;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
+      gap: 1rem;
 
       h1,
       h2,
       h3,
       & > div {
         text-align: center;
-        margin: 1rem;
+        margin: 0;
         width: 100%;
       }
     }
@@ -271,6 +341,11 @@ const defaultWidthPX = 512;
       height: 3rem;
     }
 
+    #cv-link {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
     .photo > img {
       width: 400px;
       height: auto;
@@ -278,6 +353,42 @@ const defaultWidthPX = 512;
       max-width: 100%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
+    }
+  }
+
+  .certs {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .certs svg {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .trolling {
+    position: relative;
+
+    .troller {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transform: rotate(-360deg);
+      transition: all 0.5s ease;
+      opacity: 0;
+
+      img {
+        width: auto;
+        height: 100%;
+      }
+    }
+
+    .reset-troll {
+      transform: rotate(0);
+      opacity: 1;
     }
   }
 

@@ -8,18 +8,22 @@ interface Props {
   startDate: string;
   endDate: string;
   img: ImageMetadata;
-  id?: string
+  link: string;
+  id?: string;
 }
 
-const { title, company, location, startDate, endDate, img, id } = Astro.props;
+const { title, company, location, startDate, endDate, img, link, id } =
+  Astro.props;
 ---
 
 <div class="experience" id={id}>
   <div class="logo">
-    <Image src={img} alt="Teads" width={150} />
+    <a href={link} target="_blank">
+      <Image src={img} alt={company} width={150} />
+    </a>
   </div>
   <div class="job">
-    <h2>{title} <slot name="title-more"/></h2>
+    <h2>{title} <slot name="title-more" /></h2>
     <h3>{company}, {location}</h3>
     <h4>{startDate} - {endDate}</h4>
     <slot class="description" />

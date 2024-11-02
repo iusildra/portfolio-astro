@@ -1,0 +1,12 @@
+{
+  "index": {
+    "title": "Lucas Nouguier's Portfolio"
+  },
+  "links": [
+    { "name": "Skills", "href": "/skills" },
+    { "name": "Experiences", "href": "/experiences" },
+    { "name": "Projects", "href": "/projects" },
+    { "name": "Engagement", "href": "/engagement" },
+    { "name": "Others", "href": "/others" }
+  ]
+}

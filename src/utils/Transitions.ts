@@ -4,11 +4,14 @@ export const sequencedTransitions = (
 ) => {
   const localElements = [...elements];
   const head = localElements.shift()!;
-  const _ = localElements.reduce((prev, curr) => {
-    prev.addEventListener("transitionend", () => curr.classList.add(cssClass), {
-      once: true,
-    });
-    return curr;
-  }, head);
+  let previous = head;
+  for (const element of localElements) {
+    previous.addEventListener(
+      "transitionend",
+      () => element.classList.add(cssClass),
+      { once: true },
+    );
+    previous = element;
+  }
   head.classList.add(cssClass);
 };

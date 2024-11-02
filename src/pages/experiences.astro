@@ -1,10 +1,13 @@
 ---
 import Experience from "../components/experience/Experience.astro";
 import Layout from "../layouts/Layout.astro";
-import Teads from "../images/Teads.webp";
+import Teads from "../images/Teads.svg";
+import Conecsio from "../images/Conecsio.svg";
 import ScalaCenter from "../images/scala-center.webp";
 import Line from "../components/Line.astro";
 import InlineCode from "../components/InlineCode.astro";
+
+const teadsLink = "https://www.teads.com";
 ---
 
 <script>
@@ -30,9 +33,11 @@ import InlineCode from "../components/InlineCode.astro";
       startDate="Sept. 2024"
       endDate="today"
       img={Teads}
+      link={teadsLink}
     >
       <span slot="title-more"><a href="#teads-internship">(follow-up)</a></span>
-      <i>Stack:
+      <i
+        >Stack:
         <small>
           Scala, Typescript, Git, GitHub Actions, Terraform, Jenkins, AWS,
           Grafana & Loki, Kibana
@@ -56,7 +61,7 @@ import InlineCode from "../components/InlineCode.astro";
       </ul>
     </Experience>
 
-    <Line width="80%" />
+    <Line />
 
     <Experience
       title="Assistant Software Engineer"
@@ -66,9 +71,12 @@ import InlineCode from "../components/InlineCode.astro";
       endDate="Aug.2024"
       img={Teads}
       id="teads-internship"
+      link={teadsLink}
     >
       <i>
-        <small>Stack: Scala, Typescript, Git, Terraform, Jenkins, AWS, Kibana </small>
+        <small
+          >Stack: Scala, Typescript, Git, Terraform, Jenkins, AWS, Kibana
+        </small>
       </i>
       <ul>
         <li>
@@ -91,6 +99,40 @@ import InlineCode from "../components/InlineCode.astro";
       </ul>
     </Experience>
 
+    <Line />
+
+    <Experience
+      title="End of studies project"
+      company="Conecs.io"
+      location="Montpellier, France"
+      startDate="Dec. 2023"
+      endDate="Feb. 2024"
+      img={Conecsio}
+      link="https://www.conecsio.com"
+    >
+      <i><small>Stack: Rust, Advanced Encryption Methods</small></i>
+      <ul>
+        <li>
+          POC on an privacy-preserving storage for clinical data with special
+          encryption methods. The goal is to allow re-using & sharing data
+          easily across multiple actors, only and only if, the patient allows it
+        </li>
+        <li>
+          Looked among several research papers to understand how these methods
+          works, their usecases, limitations, risks, etc.
+        </li>
+        <li>
+          Implemented a small POC with Rust:
+          <ul>
+            <li>Extremely CPU-efficient</li>
+            <li>
+              A POC isn't used in production so it was a nice opportunity :)
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </Experience>
+
     <Line width="80%" />
 
     <h1>2023</h1>
@@ -101,6 +143,7 @@ import InlineCode from "../components/InlineCode.astro";
       startDate="Apri. 2023"
       endDate="Aug. 2023"
       img={ScalaCenter}
+      link="https://scala.epfl.ch"
     >
       <i><small>Tech: Scala, JVM, Scala-Java interop, Reflection</small></i>
       <p>
@@ -147,6 +190,7 @@ import InlineCode from "../components/InlineCode.astro";
       startDate="Jun. 2022"
       endDate="Aug. 2022"
       img={Teads}
+      link={teadsLink}
     >
       <i>
         <small

@@ -3,6 +3,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Favicon from "../images/favicon.svg";
 import OpenGraph from "../images/opengraph.webp";
+import config from "../config.json";
 
 interface Props {
   title: string;
@@ -11,14 +12,34 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<!doctype html>
+<script>
+  const header = document.querySelector("header")!; // Select your sticky header
+  const headerHeight = header.offsetHeight * 2;
+
+  document.querySelectorAll("a[href^='#']").forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetId = anchor.getAttribute("href")!.substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        const elementPosition =
+          targetElement.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - headerHeight;
+
+        window.scrollTo({ top: offsetPosition });
+      }
+    });
+  });
+</script>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content="My Portfolio" />
     <meta name="viewport" content="width=device-width" />
     <meta name="robots" content="all" />
-    <meta property="og:title" content="Lucas Nouguier's Portfolio" />
+    <meta property="og:title" content={config.index.title} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://iusildra.dev" />
     <meta
@@ -29,11 +50,7 @@ const { title } = Astro.props;
       property="og:description"
       content="Welcome to a visual hell.... I mean, my portfolio"
     />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href={Favicon.src}
-    />
+    <link rel="icon" type="image/svg+xml" href={Favicon.src} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
@@ -46,6 +63,7 @@ const { title } = Astro.props;
     <Footer />
   </body>
 </html>
+
 <style is:global>
   :root {
     --tablet-width: 768px;
@@ -81,28 +99,33 @@ const { title } = Astro.props;
       align-items: center;
       width: 100%;
     }
+
+    div[id],
+    h1[id] {
+      scroll-margin-top: 2rem;
+    }
   }
 
   html {
     font-family: system-ui, sans-serif;
-    background: linear-gradient(
-      to left bottom,
-      var(--background),
-      var(--background-light),
-      var(--background)
-    );
     color: var(--text-color);
     scroll-behavior: smooth;
   }
 
   body {
     margin: 0;
+    background: linear-gradient(
+      to left bottom,
+      var(--background),
+      var(--background-light),
+      var(--background)
+    );
   }
 
   main {
     margin: auto;
     padding: var(--padding);
-    width: 800px;
+    width: 1024px;
     max-width: calc(100% - 4rem);
     font-size: 1.5rem;
     line-height: 1.6;
@@ -126,8 +149,10 @@ const { title } = Astro.props;
     color: var(--accent);
     text-decoration: none;
     transition: all 0.5s ease;
-  }
-  a:hover {
-    color: var(--accent-light);
+
+    &:hover {
+      transform: scale(105%);
+      color: var(--accent-light);
+    }
   }
 </style>

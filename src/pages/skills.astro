@@ -21,13 +21,13 @@ import Link from "../components/elements/Link.astro";
   <section slot="hero" id="page-header">
     <h1 id="page-title">My skills</h1>
     <div class="inner-links" id="skill-links">
-      <Link link="#skills" kind={"outline"}>Main Skills</Link>
+      <Link link="#main-skills" kind={"outline"}>Main Skills</Link>
       <Link link="#other-skills" kind={"outline"}>Other Skills</Link>
     </div>
   </section>
 
   <main>
-    <section id="skills">
+    <section id="main-skills">
       <h1>Main Skills</h1>
 
       <Line />
@@ -126,7 +126,7 @@ import Link from "../components/elements/Link.astro";
         <Icon
           slot="skill-logo"
           name="logos:github-icon"
-          style="background-color: var(--text-color); border: 2px solid var(--text-color); border-radius: 50%;"
+          style="box-sizing: border-box; background-color: var(--text-color); border: 2px solid var(--text-color); border-radius: 50%;"
         />
         <p>
           Since the beginning I only used GitHub (no GitLab, yet it's just a
@@ -138,7 +138,7 @@ import Link from "../components/elements/Link.astro";
         <Icon
           slot="skill-logo"
           name="logos:github-icon"
-          style="background-color: var(--text-color); border: 2px solid var(--text-color); border-radius: 50%;"
+          style="box-sizing: border-box; background-color: var(--text-color); border: 2px solid var(--text-color); border-radius: 50%;"
         />
         <p>
           Did some workflows for auto-publishing a webiste or for a full CI
@@ -269,14 +269,14 @@ import Link from "../components/elements/Link.astro";
     gap: 1rem;
   }
 
-  #skills p {
+  #main-skills p {
     margin: 0.25em;
     max-height: 8em;
     overflow-y: scroll;
     scrollbar-color: var(--accent) var(--background);
   }
 
-  #skills svg,
+  #main-skills svg,
   #other-skills svg {
     width: 4rem;
     height: 4rem;

@@ -7,20 +7,27 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "playwright test"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@iconify-json/logos": "^1.2.3",
     "@iconify-json/mdi": "^1.2.1",
-    "@iconify-json/skill-icons": "^1.2.0",
     "astro": "^4.16.7",
-    "astro-icon": "^1.1.1",
-    "typescript": "^5.6.3"
+    "astro-icon": "^1.1.1"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@eslint/js": "^9.14.0",
+    "@playwright/test": "^1.48.2",
+    "@types/node": "^22.8.6",
+    "eslint": "^9.14.0",
+    "globals": "^15.11.0",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.12.2"
   }
 }

@@ -3,9 +3,10 @@ type LinkClass = "outline";
 interface Props {
   link: string;
   kind: LinkClass;
+  id?: string;
 }
 
-const { link, kind } = Astro.props;
+const { link, kind, id } = Astro.props;
 
 const css = (() => {
   switch (kind) {
@@ -17,7 +18,7 @@ const css = (() => {
 })();
 ---
 
-<a href={link} class={css}><slot /></a>
+<a href={link} class={css} id={id}><slot /></a>
 
 <style>
   .outline {
