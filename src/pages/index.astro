@@ -40,6 +40,7 @@ import Trollface from "../images/Trollface.webp";
 import Experience from "../components/experience/Experience.astro";
 import Polytech from "../images/companies/Polytech.webp";
 import PDF from "../components/PDF.astro";
+import CV from "../pdf/CV_Lucas_NOUGUIER.pdf";
 
 const socials = [
   { icon: "mdi:github", href: "https://github.com/iusildra" },
@@ -121,7 +122,7 @@ const defaultWidthPX = 512;
     <Line />
 
     <section id="cv">
-      <PDF src="../src/pdf/CV_Lucas_NOUGUIER.pdf" height="1200px" />
+      <PDF src={CV} height="1200px" />
     </section>
 
     <Line />
@@ -369,6 +370,7 @@ const defaultWidthPX = 512;
       max-width: 100%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
+      box-shadow: 0 0 4rem 0rem var(--text-color);
     }
   }
 
