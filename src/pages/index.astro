@@ -39,6 +39,7 @@ import SkillLogo from "../components/SkillLogo.astro";
 import Trollface from "../images/Trollface.webp";
 import Experience from "../components/experience/Experience.astro";
 import Polytech from "../images/companies/Polytech.webp";
+import PDF from "../components/PDF.astro";
 
 const socials = [
   { icon: "mdi:github", href: "https://github.com/iusildra" },
@@ -75,11 +76,7 @@ const defaultWidthPX = 512;
           ))
         }
       </div>
-      <Link
-        id="cv-link"
-        link="https://github.com/iusildra/CV/blob/master/cv/CV.pdf"
-        kind="outline">View my CV</Link
-      >
+      <Link id="cv-link" link="#cv" kind="outline">View my CV</Link>
     </div>
     <div id="my-info">
       <h1>Lucas Nouguier</h1>
@@ -119,6 +116,12 @@ const defaultWidthPX = 512;
       <Line />
 
       <Cowsay />
+    </section>
+
+    <Line />
+
+    <section id="cv">
+      <PDF src="../src/pdf/CV_Lucas_NOUGUIER.pdf" height="1200px" />
     </section>
 
     <Line />
@@ -304,9 +307,7 @@ const defaultWidthPX = 512;
     .photo,
     #my-info {
       opacity: 0;
-      transition:
-        opacity 1s ease,
-        transform 1s ease;
+      transition: all 1s ease;
       &.appear {
         opacity: 1;
       }

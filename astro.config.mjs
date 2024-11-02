@@ -21,6 +21,7 @@ export default defineConfig({
           "link-variant",
           "linkedin",
           "menu",
+          "menu-left",
           "rabbit",
           "twitter",
         ],

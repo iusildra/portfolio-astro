@@ -1,0 +1,81 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  src: string;
+  height: string;
+}
+
+const { src, height } = Astro.props;
+---
+
+<script>
+  const toggleButton = document.getElementById("toggleButton")!;
+  const buttonIcon = toggleButton.querySelector("svg")!;
+  const pdfViewer = document.getElementById("pdfViewer")!;
+
+  toggleButton.addEventListener("click", () => {
+    pdfViewer.classList.toggle("open");
+    buttonIcon.classList.toggle("rotate");
+  });
+</script>
+
+<div>
+  <h1>
+    <button class="accordion" id="toggleButton">
+      My CV<Icon name="mdi:menu-left" />
+    </button>
+  </h1>
+  <embed
+    src={src}
+    width="100%"
+    height={height}
+    type="application/pdf"
+    class="accordion-content"
+    id="pdfViewer"
+  />
+</div>
+
+<style define:vars={{ viwerSize: height }}>
+  h1 button {
+    color: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+  }
+
+  .accordion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    transition: all 0.5s ease;
+    padding-block: 0;
+    padding-inline: 0;
+
+    svg {
+      width: 4rem;
+      height: 4rem;
+      transition: all 0.5s ease;
+      &.rotate {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
+  .accordion-content {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    
+    &.open {
+      max-height: var(--viwerSize);
+    }
+  }
+</style>
