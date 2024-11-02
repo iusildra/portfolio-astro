@@ -48,16 +48,16 @@ const teadsLink = "https://www.teads.com";
         <li>Finishing the encoding service migration</li>
         <ul>
           <li>
-            Unfortunately there was 1 downtime for 2 days, but a fix was found
+            Unfortunately, there was 1 downtime for 2 days, but a fix was found
           </li>
           <li>
-            Improved the observability to help detect sooner this kind of
-            incident
+            Improved the observability to help detect this kind of incident
+            sooner
           </li>
         </ul>
         <li>Finishing the cleanup</li>
-        <li>Migrating the CI/CD pipeline from Jekins to GitHub Actions</li>
-        <li>Decommissioning of unused services</li>
+        <li>Migrating the CI/CD pipeline from Jenkins to GitHub Actions</li>
+        <li>Decommissioning unused services</li>
       </ul>
     </Experience>
 
@@ -81,9 +81,9 @@ const teadsLink = "https://www.teads.com";
       <ul>
         <li>
           Migration of the service we use to encode ads from a legacy,
-          discontinued api to a newer one. Refactored the flow, optimized SQL
-          transaction (batch writes), parallelized what could be. The goal was
-          to have no downtime during the migration.
+          discontinued API to a newer one. Refactored the flow, optimized SQL
+          transactions (batch writes), and parallelized what could be. The goal
+          was to have no downtime during the migration.
           <ul>
             <li>
               Double run between the old and new implementation to find
@@ -95,7 +95,7 @@ const teadsLink = "https://www.teads.com";
           Began cleaning up some "legacy" parts to reduce accidental complexity
           and improve development speed
         </li>
-        <li>A/B tests driven development</li>
+        <li>A/B test-driven development</li>
       </ul>
     </Experience>
 
@@ -113,20 +113,20 @@ const teadsLink = "https://www.teads.com";
       <i><small>Stack: Rust, Advanced Encryption Methods</small></i>
       <ul>
         <li>
-          POC on an privacy-preserving storage for clinical data with special
+          POC on a privacy-preserving storage for clinical data with special
           encryption methods. The goal is to allow re-using & sharing data
-          easily across multiple actors, only and only if, the patient allows it
+          easily across multiple actors, only if the patient allows it.
         </li>
         <li>
-          Looked among several research papers to understand how these methods
-          works, their usecases, limitations, risks, etc.
+          Reviewed several research papers to understand how these methods work,
+          their use cases, limitations, risks, etc.
         </li>
         <li>
           Implemented a small POC with Rust:
           <ul>
             <li>Extremely CPU-efficient</li>
             <li>
-              A POC isn't used in production so it was a nice opportunity :)
+              A POC isn't used in production, so it was a nice opportunity :)
             </li>
           </ul>
         </li>
@@ -148,35 +148,35 @@ const teadsLink = "https://www.teads.com";
       <i><small>Tech: Scala, JVM, Scala-Java interop, Reflection</small></i>
       <p>
         Improved the Scala debugger in VS Code with a new evaluation mode, using
-        runtime reflection. It is limited to expression that can be <u
+        runtime reflection. It is limited to expressions that can be <u
           >correctly</u
-        > evaluated at runtime (e.g. in the case of overridden method, using reflection
-        we could pick a method different from what the compiler would have chosen)
+        > evaluated at runtime (e.g., in the case of an overridden method, using reflection
+        we could pick a method different from what the compiler would have chosen).
       </p>
       <p>The evaluation is performed in 2 phases:</p>
       <ol>
         <li>
           Validate the expression: correct syntax, evaluable using reflection.
           Transform the expression AST into a custom ADT representing the
-          expression, that can later be evaluated
+          expression, that can later be evaluated.
         </li>
-        <li>Evaluate the expression</li>
+        <li>Evaluate the expression.</li>
       </ol>
       <p>
         This evaluation includes a <InlineCode>pre-evaluation</InlineCode> mode.
-        Instead of using the compile time type of a value, <u>if possible</u> we
-        evaluate it and uses its runtime type. It eases the access to runtime information
-        during debugging
+        Instead of using the compile-time type of a value, <u>if possible</u> we
+        evaluate it and use its runtime type. It eases the access to runtime information
+        during debugging.
       </p>
       <p>
         I particularly enjoyed the compiler-related part of the project: ASTs,
-        type checking, overloads resolution, etc.
+        type checking, overload resolution, etc.
       </p>
       <p>
-        As a secondary project, I helped on the implementation of Hot Code
-        Replacement (HCR). Meaning that we now can launch a debug session,
-        change the code and just reload the session (so we keep the "progress"
-        made +/-) instead of restarting from the beginning
+        As a secondary project, I helped with the implementation of Hot Code
+        Replacement (HCR). This means that we can now launch a debug session,
+        change the code, and just reload the session (so we keep the "progress"
+        made +/-) instead of restarting from the beginning.
       </p>
     </Experience>
 
@@ -194,18 +194,18 @@ const teadsLink = "https://www.teads.com";
     >
       <i>
         <small
-          >Stack: Scala, Typescript, gRPC, React, Git, Github, Cypress, Jenkins
+          >Stack: Scala, Typescript, gRPC, React, Git, GitHub, Cypress, Jenkins
         </small>
       </i>
       <p>
-        2-month internship were I worked on the V2 of their demo application. I
+        2-month internship where I worked on the V2 of their demo application. I
         did some backend development with Scala & the Typelevel ecosystem
         (Cats-effect, doobie...) followed by a more front-end part (in the end I
-        work on both backend & frontend at the same time)
+        worked on both backend & frontend at the same time).
       </p>
 
       <p>
-        For each feature I developed, I was responsible for the whole lifecyle:
+        For each feature I developed, I was responsible for the whole lifecycle:
         code, test, deploy, refactor, fix bugs...
       </p>
     </Experience>
