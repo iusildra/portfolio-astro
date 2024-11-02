@@ -90,7 +90,6 @@ const { title } = Astro.props;
     h2,
     h3 {
       font-weight: 700;
-      line-height: 1;
     }
 
     #page-header {
@@ -99,11 +98,20 @@ const { title } = Astro.props;
       align-items: center;
       width: 100%;
     }
+  }
 
-    div[id],
-    h1[id] {
-      scroll-margin-top: 2rem;
-    }
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+
+    min-height: calc(100vh - 2rem - 10 * var(--padding));
+
+    margin: auto;
+    padding: 4rem;
+
+    border-bottom: 4px solid var(--accent);
   }
 
   html {
@@ -128,31 +136,15 @@ const { title } = Astro.props;
     width: 1024px;
     max-width: calc(100% - 4rem);
     font-size: 1.5rem;
-    line-height: 1.6;
   }
-
-  .hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-
-    min-height: calc(100vh - 2rem - 10 * var(--padding));
-
-    margin: auto;
-    padding: 4rem;
-
-    border-bottom: 4px solid var(--accent);
-  }
-
   a {
     color: var(--accent);
     text-decoration: none;
     transition: all 0.5s ease;
 
     &:hover {
-      transform: scale(105%);
       color: var(--accent-light);
+      transform: scale(1.1);
     }
   }
 </style>

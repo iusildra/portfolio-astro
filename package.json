@@ -8,7 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "playwright test"
+    "test": "NODE_OPTIONS=--max-old-space-size=8192 NODE_OPTIONS=--no-warnings=ExperimentalWarning playwright test"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

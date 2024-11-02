@@ -3,10 +3,6 @@ import config from "../src/config.json" assert { type: "json" };
 import { assert } from "console";
 
 test.describe("Landing page", () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto("http://localhost:4321");
-  });
-
   test("Is correct", async ({ page }) => {
     await expect(page).toHaveTitle(config.index.title);
     assert(page.locator("header").isVisible());

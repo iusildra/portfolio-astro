@@ -85,10 +85,10 @@ import config from "../config.json";
     .dropdown {
       display: block;
       position: relative;
-      display: inline-block;
     }
 
     #header-dropdown {
+      padding: 0;
       background-color: transparent;
       color: var(--text-color);
       border: none;
@@ -99,6 +99,7 @@ import config from "../config.json";
       display: none;
       position: absolute;
       right: 0px;
+      top: calc(2rem + var(--padding) + 3.5px);
       min-width: 160px;
       box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
       border-radius: 4px;

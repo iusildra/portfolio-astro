@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import InlineCode from "../components/InlineCode.astro";
-import Line from "../components/Line.astro";
+import Line from "../components/elements/Line.astro";
 import SkillCard from "../components/SkillCard.astro";
 import SkillLogo from "../components/SkillLogo.astro";
 import Layout from "../layouts/Layout.astro";
@@ -274,6 +274,7 @@ import Link from "../components/elements/Link.astro";
     max-height: 8em;
     overflow-y: scroll;
     scrollbar-color: var(--accent) var(--background);
+    line-height: 1.5;
   }
 
   #main-skills svg,

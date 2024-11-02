@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import PP from "../images/me.webp";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import Line from "../components/Line.astro";
+import Line from "../components/elements/Line.astro";
 import Cowsay from "../components/pre/Cowsay.astro";
 import Link from "../components/elements/Link.astro";
 import BikeAlps from "../images/hobbies/bike-alps.webp";
@@ -37,6 +37,8 @@ import sirup from "../images/hobbies/sirup.webp";
 import config from "../config.json";
 import SkillLogo from "../components/SkillLogo.astro";
 import Trollface from "../images/Trollface.webp";
+import Experience from "../components/experience/Experience.astro";
+import Polytech from "../images/companies/Polytech.webp";
 
 const socials = [
   { icon: "mdi:github", href: "https://github.com/iusildra" },
@@ -88,6 +90,7 @@ const defaultWidthPX = 512;
       </h3>
       <div class="inner-links">
         <Link link="#about-me" kind="outline">About</Link>
+        <Link link="#education" kind="outline">Education</Link>
         <Link link="#hobbies" kind="outline">Hobbies</Link>
       </div>
     </div>
@@ -120,12 +123,31 @@ const defaultWidthPX = 512;
 
     <Line />
 
-    <section id="eduction">
+    <section id="education">
       <h1>Education</h1>
 
-      <h2>Engineering Degree in Computer Science</h2>
-
-      <p>TO FILL :)</p>
+      <Experience
+        title="Engineering Degree in Computer Science"
+        company="Polytech Montpellier"
+        location="Montpellier, France"
+        startDate="Sept. 2021"
+        endDate="Aug. 2024"
+        img={Polytech}
+        link="https://www.polytech.umontpellier.fr"
+      >
+        <i>Equivalent to a Master's degree</i>
+        <p>
+          3 year specialisation in Computer Science with a minor in management
+        </p>
+        <ul>
+          <li>Software Engineering: Algorithms, Design Patterns, UML</li>
+          <li>Web development: front-end, back-end</li>
+          <li>Databases: SQL & NoSQL</li>
+          <li>Cloud: Docker, Deployment</li>
+          <li>Data science: statistics, ML</li>
+          <li>Management: project management, accountability, finance</li>
+        </ul>
+      </Experience>
     </section>
 
     <Line />
@@ -257,23 +279,16 @@ const defaultWidthPX = 512;
   }
 
   .inner-links {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
     justify-content: space-evenly;
-    row-gap: 1em;
-    column-gap: 1em;
-  }
-
-  .funny-quote {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    gap: 1em;
   }
 
   .bio {
-    background-color: #2d2d2d;
+    box-shadow: 0 0 4rem 1rem var(--background);
+
     padding: 1rem;
     border-radius: 0.5rem;
     font-family: "Courier New", Courier, monospace;
@@ -312,7 +327,7 @@ const defaultWidthPX = 512;
     }
 
     #my-info {
-      min-width: min(460px, 100%); /* Hard coded for simplicity */
+      min-width: min(460px, 100%);
       flex: 1 1 calc(60% - 2rem);
       display: flex;
       flex-direction: column;
@@ -353,6 +368,12 @@ const defaultWidthPX = 512;
       max-width: 100%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
+    }
+  }
+  
+  #education {
+    p, ul {
+      line-height: 1.5;
     }
   }
 

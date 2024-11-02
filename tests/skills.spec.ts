@@ -2,7 +2,7 @@ import test, { expect } from "@playwright/test";
 
 test.describe("Skills", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("http://localhost:4321/skills");
+    await page.goto("/skills");
   });
 
   test("Has working inner links", async ({ page }) => {

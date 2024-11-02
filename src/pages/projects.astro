@@ -1,27 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import Line from "../components/Line.astro";
+import Line from "../components/elements/Line.astro";
 import Layout from "../layouts/Layout.astro";
 import PortfolioThumb from "../images/thumbnails/Portfolio_large.webp";
 import ScalaIOThumb from "../images/thumbnails/ScalaIO_large.webp";
 import { Icon } from "astro-icon/components";
-import type { ImageMetadata } from "astro";
-
-interface Project {
-  name: string;
-  image: ImageMetadata;
-  projectLink: string;
-  githubLink?: string;
-}
-
-const projects: Project[] = [
-  {
-    name: "Scala.IO website",
-    image: ScalaIOThumb,
-    projectLink: "https://scala.io",
-    githubLink: "https://github.com/ScalaIO/scala.io",
-  },
-];
 ---
 
 <Layout title="Projects">
@@ -31,38 +14,29 @@ const projects: Project[] = [
 
   <main>
     <section id="projects">
-      {
-        projects.reduce(
-          (acc, project) => {
-            acc.push(
-              <Line />,
-              <h1>
-                <a href={project.githubLink} target="_blank">
-                  {project.name}
-                  <Icon name="mdi:link-variant" />
-                </a>
-              </h1>,
-              <a href={project.projectLink} target="_blank">
-                <Image src={project.image} alt={project.name} />
-              </a>,
-            );
-            return acc;
-          },
-          [
-            <>
-              <h1>Portfolio</h1>
-              <a href="/" target="_blank">
-                <Image src={PortfolioThumb} alt="My Portfolio" />
-              </a>
-            </>,
-          ],
-        )
-      }
+      <h1>Portfolio</h1>
+      <a href="/" target="_blank">
+        <Image src={PortfolioThumb} alt="My Portfolio" />
+      </a>
+      <Line />
+      <h1>
+        <a href={"https://github.com/ScalaIO/scala.io"} target="_blank">
+          Scala.IO webiste
+          <Icon name="mdi:link-variant" />
+        </a>
+      </h1>
+      <a href="https://scala.io" target="_blank">
+        <Image src={ScalaIOThumb} alt="Scala.IO website" />
+      </a>
     </section>
   </main>
 </Layout>
 
 <style>
+  h1 {
+    text-align: center;
+  }
+
   #projects {
     display: flex;
     flex-direction: column;
@@ -70,12 +44,16 @@ const projects: Project[] = [
   }
 
   h1 {
-    display: flex;
+    text-align: center;
     transition: all 0.5s ease;
     color: var(--text-color);
     svg {
       margin-left: 0.5rem;
     }
+  }
+
+  a {
+    text-align: center;
   }
 
   img {

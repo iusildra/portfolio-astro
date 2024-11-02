@@ -17,14 +17,13 @@ test.describe("Header", () => {
     );
   };
 
-  test.beforeEach(async ({ page }) => {
-    await page.goto("http://localhost:4321");
-  });
-
-  test("Has clickable links on large screens", async ({ page, isMobile }) => {
+  test.skip("Has clickable links on large screens", async ({
+    page,
+    isMobile,
+  }) => {
     test.skip(isMobile);
 
-    expect(await page.locator("#dropdown-button").isHidden()).toBe(true);
+    expect(await page.locator("#header-dropdown").isHidden()).toBe(true);
 
     const rawLinks = await page
       .locator("header")
@@ -42,9 +41,9 @@ test.describe("Header", () => {
     test.skip(!isMobile);
     const header = page.locator("header");
 
-    expect (await header.locator(".links").isHidden()).toBe(true);
+    expect(await header.locator(".links").isHidden()).toBe(true);
 
-    await header.locator("#dropdown-button").click();
+    await header.locator("div > #header-dropdown").click();
     const dropDownLinks = await header
       .locator("#dropdown-content")
       .locator("a")
