@@ -71,8 +71,8 @@ const defaultWidthPX = 512;
       <div class="links">
         {
           socials.map(({ icon, href }) => (
-            <a href={href} target="_blank">
-              <Icon name={icon} title={`Link to ${href}`} />
+            <a href={href} target="_blank" title={`Link to ${href}`}>
+              <Icon name={icon} />
             </a>
           ))
         }
