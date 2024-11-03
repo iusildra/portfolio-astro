@@ -18,7 +18,7 @@ import config from "../config.json";
 
 <header>
   <a href={`/`}>
-    <Icon name="mdi:home" />
+    <Icon name="mdi:home" title="Back to home" />
   </a>
   <div class="links">
     {
@@ -30,10 +30,10 @@ import config from "../config.json";
     }
   </div>
   <div class="dropdown">
-    <button id="header-dropdown">
+    <button id="header-dropdown" title="Navigation dropdown">
       <Icon name="mdi:menu" />
     </button>
-    <div class="dropdown-content">
+    <div id="dropdown-content">
       {
         config.links.map((link) => (
           <a href={link.href} data-astro-prefetch>
@@ -93,7 +93,7 @@ import config from "../config.json";
       cursor: pointer;
     }
 
-    .dropdown-content {
+    #dropdown-content {
       display: none;
       position: absolute;
       right: 0px;
@@ -107,15 +107,15 @@ import config from "../config.json";
         var(--background-light),
         var(--background)
       );
+
+      &.show {
+        display: block;
+      }
     }
 
-    .dropdown-content a {
+    #dropdown-content a {
       padding: 12px 16px;
       text-decoration: none;
-      display: block;
-    }
-
-    .show {
       display: block;
     }
 

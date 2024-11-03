@@ -26,216 +26,212 @@ import Link from "../components/elements/Link.astro";
     </div>
   </section>
 
-  <main>
-    <section id="main-skills">
-      <h1>Main Skills</h1>
+  <section id="main-skills">
+    <h1>Main Skills</h1>
 
-      <Line />
+    <Line />
 
-      <h2>Paradigms</h2>
-      <SkillCard name="Functional Programming">
-        <Icon slot="skill-logo" name="mdi:lambda" width="4rem" height="4rem" />
-        <p>
-          I discovered the functional paradigm not long ago (in 2022) with <a
-            href="https://scala-lang.org/"
-            target="_blank">Scala</a
-          > and loved the mindset and the safety it provides through idempotency,
-          reproducibility, and statelessness. Now most of my code has a functional
-          approach except for some rare cases where it hurts me to admit it, but
-          the imperative way better fits the needs.
-        </p>
-      </SkillCard>
-      <SkillCard name="Object Oriented Programming" reverse={true}>
-        <Icon slot="skill-logo" name="mdi:rabbit" width="4rem" height="4rem" />
-        <p>
-          The paradigm that got me into programming. I was toying with some
-          turtles (<a href="https://www.kogics.net/kojo" target="_blank">Kojo</a
-          >) to draw weird things (I'm not good as an artist, sorry if the
-          colors burn your eyes ^^'). After that, I started a MOOC on Coursera
-          on Java & OOP at around 14 years old. Did you get the rabbit? :)
-        </p>
-      </SkillCard>
-
-      <Line />
-
-      <h2>Languages</h2>
-      <SkillCard name="Scala">
-        <Icon slot="skill-logo" name="logos:scala" />
-        <p>
-          The language I'm most comfortable with (and IMO one of the best of all
-          time, but I might be biased...), with which I discovered both FP &
-          open-source worlds. I particularly enjoy its clean syntax and
-          conciseness & expressivity and the way it makes reasoning easier for
-          non-simple logics. And the latest developments of the language made it
-          even simpler to use as a standalone script.
-        </p>
-      </SkillCard>
-      <SkillCard name="Typescript" reverse={true}>
-        <Icon slot="skill-logo" name="logos:typescript-icon" />
-        <p>
-          Nice language with which I recently rediscovered what it is to do
-          frontend development. I was used to having only CRUDs and forms (which
-          was very fun the first time I did it, but after doing it 5 times,
-          well, I felt like a robot).
-        </p>
-      </SkillCard>
-      <SkillCard name="Java">
-        <Icon slot="skill-logo" name="logos:java" />
-        <p>My very first language 🥰. Way too verbose, but we still like it.</p>
-      </SkillCard>
-      <SkillCard name="Rust" reverse={true}>
-        <Icon
-          slot="skill-logo"
-          name="logos:rust"
-          style="background-color: var(--text-color); border-radius: 50%;"
-        />
-        <p>
-          Very interesting language. I tried it once for a small project (ok I
-          admit, I put it here for beauty) and tried to fight with the
-          borrow-checker. Moral of the story: you <b>do not</b> fight with the borrow-checker.
-          It'll always win. Always (and that's good, though frustrating at first).
-        </p>
-      </SkillCard>
-
-      <Line />
-
-      <h2>Databases</h2>
-      <SkillCard name="PostgreSQL">
-        <Icon slot="skill-logo" name="logos:postgresql" />
-        <p>🐘</p>
-      </SkillCard>
-      <SkillCard name="MySQL" reverse={true}>
-        <Icon slot="skill-logo" name="logos:mysql" />
-        <p>🐬</p>
-      </SkillCard>
-
-      <Line />
-
-      <h2>Dev Tools</h2>
-      <SkillCard name="Git">
-        <Icon slot="skill-logo" name="logos:git-icon" />
-        <p>
-          As mentioned before, I love using CLIs. Using the CLI for every single
-          step in Git (okay, not for adding a single file to the staging area)
-          allowed me to master the common workflows 🪄 (though I sometimes
-          learned the hard way that if there's documentation, it's not just for
-          show).
-        </p>
-      </SkillCard>
-      <SkillCard name="GitHub" reverse={true}>
-        <Icon
-          slot="skill-logo"
-          name="logos:github-icon"
-          style="box-sizing: border-box; background-color: var(--text-color); border: 2px solid var(--text-color); border-radius: 50%;"
-        />
-        <p>
-          Since the beginning, I have only used GitHub (no GitLab yet, it's just
-          a different tool). Btw, your thoughts on GitHub CLI? Personally, I
-          don't open new PRs with the UI anymore 😄
-        </p>
-      </SkillCard>
-      <SkillCard name="GitHub Actions">
-        <Icon
-          slot="skill-logo"
-          name="logos:github-icon"
-          style="box-sizing: border-box; background-color: var(--text-color); border: 2px solid var(--text-color); border-radius: 50%;"
-        />
-        <p>
-          Created workflows for auto-publishing a website and for a full CI
-          pipeline. As with every CI/CD environment, local reproducibility is
-          not always great and the conditionals could be reworked a bit (e.g.,
-          to include cleaner ternary expression). Still, it's pretty nice to
-          use.
-        </p>
-      </SkillCard>
-      <SkillCard name="Docker" reverse={true}>
-        <Icon slot="skill-logo" name="logos:docker-icon" />
-        <p>
-          One day I ended up using 450GB (out of 500GB) of disk space with only
-          Docker images. That's where I learned about the necessity of regularly
-          cleaning the cache and having multi-stage <InlineCode
-            >Dockerfile</InlineCode
-          > (it took ~15 minutes to clear the cache 💀)
-        </p>
-      </SkillCard>
-    </section>
-
-    <Line width="80%" />
-
-    <section id="other-skills">
-      <h1>Other skills</h1>
+    <h2>Paradigms</h2>
+    <SkillCard name="Functional Programming">
+      <Icon slot="skill-logo" name="mdi:lambda" width="4rem" height="4rem" />
       <p>
-        The following skills are listed because I have at least some
-        <u>basic</u>
-        knowledge and have used them in a project.
+        I discovered the functional paradigm not long ago (in 2022) with <a
+          href="https://scala-lang.org/"
+          target="_blank">Scala</a
+        > and loved the mindset and the safety it provides through idempotency, reproducibility,
+        and statelessness. Now most of my code has a functional approach except for
+        some rare cases where it hurts me to admit it, but the imperative way better
+        fits the needs.
       </p>
+    </SkillCard>
+    <SkillCard name="Object Oriented Programming" reverse={true}>
+      <Icon slot="skill-logo" name="mdi:rabbit" width="4rem" height="4rem" />
+      <p>
+        The paradigm that got me into programming. I was toying with some
+        turtles (<a href="https://www.kogics.net/kojo" target="_blank">Kojo</a>)
+        to draw weird things (I'm not good as an artist, sorry if the colors
+        burn your eyes ^^'). After that, I started a MOOC on Coursera on Java &
+        OOP at around 14 years old. Did you get the rabbit? :)
+      </p>
+    </SkillCard>
 
-      <!-- <h3>Languages</h3> -->
-      <div class="other-skills">
-        <SkillLogo name="Terraform">
-          <Icon slot="skill-logo" name="logos:terraform-icon" />
-        </SkillLogo>
-        <SkillLogo name="JavaScript">
-          <Icon slot="skill-logo" name="logos:javascript" />
-        </SkillLogo>
-      </div>
+    <Line />
 
-      <!-- <h3>Frontend Frameworks</h3> -->
-      <div class="other-skills">
-        <SkillLogo name="React">
-          <Icon slot="skill-logo" name="logos:react" />
-        </SkillLogo>
-        <SkillLogo name="Vue">
-          <Icon slot="skill-logo" name="logos:vue" />
-        </SkillLogo>
-        <SkillLogo name="Svelte">
-          <Icon slot="skill-logo" name="logos:svelte-icon" />
-        </SkillLogo>
-      </div>
+    <h2>Languages</h2>
+    <SkillCard name="Scala">
+      <Icon slot="skill-logo" name="logos:scala" />
+      <p>
+        The language I'm most comfortable with (and IMO one of the best of all
+        time, but I might be biased...), with which I discovered both FP &
+        open-source worlds. I particularly enjoy its clean syntax and
+        conciseness & expressivity and the way it makes reasoning easier for
+        non-simple logics. And the latest developments of the language made it
+        even simpler to use as a standalone script.
+      </p>
+    </SkillCard>
+    <SkillCard name="Typescript" reverse={true}>
+      <Icon slot="skill-logo" name="logos:typescript-icon" />
+      <p>
+        Nice language with which I recently rediscovered what it is to do
+        frontend development. I was used to having only CRUDs and forms (which
+        was very fun the first time I did it, but after doing it 5 times, well,
+        I felt like a robot).
+      </p>
+    </SkillCard>
+    <SkillCard name="Java">
+      <Icon slot="skill-logo" name="logos:java" />
+      <p>My very first language 🥰. Way too verbose, but we still like it.</p>
+    </SkillCard>
+    <SkillCard name="Rust" reverse={true}>
+      <Icon
+        slot="skill-logo"
+        name="logos:rust"
+        style="background-color: var(--text-color); border-radius: 50%;"
+      />
+      <p>
+        Very interesting language. I tried it once for a small project (ok I
+        admit, I put it here for beauty) and tried to fight with the
+        borrow-checker. Moral of the story: you <b>do not</b> fight with the borrow-checker.
+        It'll always win. Always (and that's good, though frustrating at first).
+      </p>
+    </SkillCard>
 
-      <!-- <h3>HTTP Protocols</h3> -->
-      <div class="other-skills">
-        <SkillLogo name="gRPC">
-          <Icon slot="skill-logo" name="logos:grpc" />
-        </SkillLogo>
-        <SkillLogo name="REST">
-          <Icon slot="skill-logo" name="logos:json-schema-icon" />
-        </SkillLogo>
-        <SkillLogo name="GraphQL">
-          <Icon slot="skill-logo" name="logos:graphql" />
-        </SkillLogo>
-      </div>
+    <Line />
 
-      <!-- <h3>Cloud</h3> -->
-      <div class="other-skills">
-        <SkillLogo name="Kibana">
-          <Icon slot="skill-logo" name="logos:kibana" />
-        </SkillLogo>
-        <SkillLogo name="AWS S3">
-          <Icon slot="skill-logo" name="logos:aws-s3" />
-        </SkillLogo>
-        <SkillLogo name="AWS EC2">
-          <Icon slot="skill-logo" name="logos:aws-ec2" />
-        </SkillLogo>
-        <SkillLogo name="Grafana">
-          <Icon slot="skill-logo" name="logos:grafana" />
-        </SkillLogo>
-      </div>
+    <h2>Databases</h2>
+    <SkillCard name="PostgreSQL">
+      <Icon slot="skill-logo" name="logos:postgresql" />
+      <p>🐘</p>
+    </SkillCard>
+    <SkillCard name="MySQL" reverse={true}>
+      <Icon slot="skill-logo" name="logos:mysql" />
+      <p>🐬</p>
+    </SkillCard>
 
-      <!-- <h3>Not relevant, but pretty 🙂</h3> -->
-      <div class="other-skills">
-        <SkillLogo name="Linux">
-          <Icon slot="skill-logo" name="logos:linux-tux" />
-        </SkillLogo>
-        <SkillLogo name="Archlinux">
-          <Icon slot="skill-logo" name="logos:archlinux" />
-        </SkillLogo>
-        <SkillLogo name="VSCode">
-          <Icon slot="skill-logo" name="logos:visual-studio-code" />
-        </SkillLogo>
-      </div>
-    </section>
-  </main>
+    <Line />
+
+    <h2>Dev Tools</h2>
+    <SkillCard name="Git">
+      <Icon slot="skill-logo" name="logos:git-icon" />
+      <p>
+        As mentioned before, I love using CLIs. Using the CLI for every single
+        step in Git (okay, not for adding a single file to the staging area)
+        allowed me to master the common workflows 🪄 (though I sometimes learned
+        the hard way that if there's documentation, it's not just for show).
+      </p>
+    </SkillCard>
+    <SkillCard name="GitHub" reverse={true}>
+      <Icon
+        slot="skill-logo"
+        name="logos:github-icon"
+        style="box-sizing: border-box; background-color: var(--text-color); border: 2px solid var(--text-color); border-radius: 50%;"
+      />
+      <p>
+        Since the beginning, I have only used GitHub (no GitLab yet, it's just a
+        different tool). Btw, your thoughts on GitHub CLI? Personally, I don't
+        open new PRs with the UI anymore 😄
+      </p>
+    </SkillCard>
+    <SkillCard name="GitHub Actions">
+      <Icon
+        slot="skill-logo"
+        name="logos:github-icon"
+        style="box-sizing: border-box; background-color: var(--text-color); border: 2px solid var(--text-color); border-radius: 50%;"
+      />
+      <p>
+        Created workflows for auto-publishing a website and for a full CI
+        pipeline. As with every CI/CD environment, local reproducibility is not
+        always great and the conditionals could be reworked a bit (e.g., to
+        include cleaner ternary expression). Still, it's pretty nice to use.
+      </p>
+    </SkillCard>
+    <SkillCard name="Docker" reverse={true}>
+      <Icon slot="skill-logo" name="logos:docker-icon" />
+      <p>
+        One day I ended up using 450GB (out of 500GB) of disk space with only
+        Docker images. That's where I learned about the necessity of regularly
+        cleaning the cache and having multi-stage <InlineCode
+          >Dockerfile</InlineCode
+        > (it took ~15 minutes to clear the cache 💀)
+      </p>
+    </SkillCard>
+  </section>
+
+  <Line width="80%" />
+
+  <section id="other-skills">
+    <h1>Other skills</h1>
+    <p>
+      The following skills are listed because I have at least some
+      <u>basic</u>
+      knowledge and have used them in a project.
+    </p>
+
+    <!-- <h3>Languages</h3> -->
+    <div class="other-skills">
+      <SkillLogo name="Terraform">
+        <Icon slot="skill-logo" name="logos:terraform-icon" />
+      </SkillLogo>
+      <SkillLogo name="JavaScript">
+        <Icon slot="skill-logo" name="logos:javascript" />
+      </SkillLogo>
+    </div>
+
+    <!-- <h3>Frontend Frameworks</h3> -->
+    <div class="other-skills">
+      <SkillLogo name="React">
+        <Icon slot="skill-logo" name="logos:react" />
+      </SkillLogo>
+      <SkillLogo name="Vue">
+        <Icon slot="skill-logo" name="logos:vue" />
+      </SkillLogo>
+      <SkillLogo name="Svelte">
+        <Icon slot="skill-logo" name="logos:svelte-icon" />
+      </SkillLogo>
+    </div>
+
+    <!-- <h3>HTTP Protocols</h3> -->
+    <div class="other-skills">
+      <SkillLogo name="gRPC">
+        <Icon slot="skill-logo" name="logos:grpc" />
+      </SkillLogo>
+      <SkillLogo name="REST">
+        <Icon slot="skill-logo" name="logos:json-schema-icon" />
+      </SkillLogo>
+      <SkillLogo name="GraphQL">
+        <Icon slot="skill-logo" name="logos:graphql" />
+      </SkillLogo>
+    </div>
+
+    <!-- <h3>Cloud</h3> -->
+    <div class="other-skills">
+      <SkillLogo name="Kibana">
+        <Icon slot="skill-logo" name="logos:kibana" />
+      </SkillLogo>
+      <SkillLogo name="AWS S3">
+        <Icon slot="skill-logo" name="logos:aws-s3" />
+      </SkillLogo>
+      <SkillLogo name="AWS EC2">
+        <Icon slot="skill-logo" name="logos:aws-ec2" />
+      </SkillLogo>
+      <SkillLogo name="Grafana">
+        <Icon slot="skill-logo" name="logos:grafana" />
+      </SkillLogo>
+    </div>
+
+    <!-- <h3>Not relevant, but pretty 🙂</h3> -->
+    <div class="other-skills">
+      <SkillLogo name="Linux">
+        <Icon slot="skill-logo" name="logos:linux-tux" />
+      </SkillLogo>
+      <SkillLogo name="Archlinux">
+        <Icon slot="skill-logo" name="logos:archlinux" />
+      </SkillLogo>
+      <SkillLogo name="VSCode">
+        <Icon slot="skill-logo" name="logos:visual-studio-code" />
+      </SkillLogo>
+    </div>
+  </section>
 </Layout>
 
 <style>
@@ -243,8 +239,8 @@ import Link from "../components/elements/Link.astro";
     opacity: 0;
     transform: translateY(100%);
     transition:
-      opacity 1s ease,
-      transform 1s ease;
+      opacity 0.5s ease,
+      transform 0.5s ease;
 
     &.appear {
       opacity: 1;

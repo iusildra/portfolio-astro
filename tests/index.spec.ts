@@ -1,11 +1,15 @@
 import { test, expect } from "@playwright/test";
 import config from "../src/config.json" assert { type: "json" };
-import { assert } from "console";
 
-test.describe("Landing page", () => {
+test.describe.serial("Landing page", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("/");
+  });
+
   test("Is correct", async ({ page }) => {
+    await expect(page.locator("header").nth(0)).toBeVisible(); // The dev toolbar contains a header
     await expect(page).toHaveTitle(config.index.title);
-    assert(page.locator("header").isVisible());
+    await page.waitForTimeout(1000);
     await expect(page).toHaveScreenshot("landing.png");
   });
 

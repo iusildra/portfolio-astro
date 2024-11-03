@@ -13,6 +13,7 @@ const cssGradientDirection = reverse ? "to left" : "to right";
 <div
   class="skill-card"
   style=`--wrap-direction:${cssWrapReverse}; --align:${cssAlignReverse}; --gradient-direction:${cssGradientDirection}`
+  tabindex="0"
 >
   <div class="logo" style=`margin-left: ${reverse && '2rem'}; margin-right: ${!reverse && '2rem'}`>
     <slot name="skill-logo"/>

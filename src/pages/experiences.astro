@@ -24,28 +24,28 @@ const teadsLink = "https://www.teads.com";
     <h1>Experiences</h1>
   </section>
 
-  <main>
-    <h1>2024</h1>
-    <Experience
-      title="Software Engineer"
-      company="Teads"
-      location="Montpellier, France"
-      startDate="Sept. 2024"
-      endDate="today"
-      img={Teads}
-      link={teadsLink}
-    >
-      <span slot="title-more"><a href="#teads-internship">(follow-up)</a></span>
-      <i
-        >Stack:
-        <small>
-          Scala, Typescript, Git, GitHub Actions, Terraform, Jenkins, AWS,
-          Grafana & Loki, Kibana
-        </small>
-      </i>
+  <h1>2024</h1>
+  <Experience
+    title="Software Engineer"
+    company="Teads"
+    location="Montpellier, France"
+    startDate="Sept. 2024"
+    endDate="today"
+    img={Teads}
+    link={teadsLink}
+  >
+    <span slot="title-more"><a href="#teads-internship">(follow-up)</a></span>
+    <i
+      >Stack:
+      <small>
+        Scala, Typescript, Git, GitHub Actions, Terraform, Jenkins, AWS, Grafana
+        & Loki, Kibana
+      </small>
+    </i>
 
-      <ul>
-        <li>Finishing the encoding service migration</li>
+    <ul>
+      <li>
+        Finishing the encoding service migration
         <ul>
           <li>
             Unfortunately, there was 1 downtime for 2 days, but a fix was found
@@ -55,161 +55,161 @@ const teadsLink = "https://www.teads.com";
             sooner
           </li>
         </ul>
-        <li>Finishing the cleanup</li>
-        <li>Migrating the CI/CD pipeline from Jenkins to GitHub Actions</li>
-        <li>Decommissioning unused services</li>
-      </ul>
-    </Experience>
+      </li>
+      <li>Finishing the cleanup</li>
+      <li>Migrating the CI/CD pipeline from Jenkins to GitHub Actions</li>
+      <li>Decommissioning unused services</li>
+    </ul>
+  </Experience>
 
-    <Line />
+  <Line />
 
-    <Experience
-      title="Assistant Software Engineer"
-      company="Teads"
-      location="Montpellier, France"
-      startDate="Mar. 2024"
-      endDate="Aug.2024"
-      img={Teads}
-      id="teads-internship"
-      link={teadsLink}
-    >
-      <i>
-        <small
-          >Stack: Scala, Typescript, Git, Terraform, Jenkins, AWS, Kibana
-        </small>
-      </i>
-      <ul>
-        <li>
-          Migration of the service we use to encode ads from a legacy,
-          discontinued API to a newer one. Refactored the flow, optimized SQL
-          transactions (batch writes), and parallelized what could be. The goal
-          was to have no downtime during the migration.
-          <ul>
-            <li>
-              Double run between the old and new implementation to find
-              discrepancies
-            </li>
-          </ul>
-        </li>
-        <li>
-          Began cleaning up some "legacy" parts to reduce accidental complexity
-          and improve development speed
-        </li>
-        <li>A/B test-driven development</li>
-      </ul>
-    </Experience>
+  <Experience
+    title="Assistant Software Engineer"
+    company="Teads"
+    location="Montpellier, France"
+    startDate="Mar. 2024"
+    endDate="Aug.2024"
+    img={Teads}
+    id="teads-internship"
+    link={teadsLink}
+  >
+    <i>
+      <small
+        >Stack: Scala, Typescript, Git, Terraform, Jenkins, AWS, Kibana
+      </small>
+    </i>
+    <ul>
+      <li>
+        Migration of the service we use to encode ads from a legacy,
+        discontinued API to a newer one. Refactored the flow, optimized SQL
+        transactions (batch writes), and parallelized what could be. The goal
+        was to have no downtime during the migration.
+        <ul>
+          <li>
+            Double run between the old and new implementation to find
+            discrepancies
+          </li>
+        </ul>
+      </li>
+      <li>
+        Began cleaning up some "legacy" parts to reduce accidental complexity
+        and improve development speed
+      </li>
+      <li>A/B test-driven development</li>
+    </ul>
+  </Experience>
 
-    <Line />
+  <Line />
 
-    <Experience
-      title="End of studies project"
-      company="Conecs.io"
-      location="Montpellier, France"
-      startDate="Dec. 2023"
-      endDate="Feb. 2024"
-      img={Conecsio}
-      link="https://www.conecsio.com"
-    >
-      <i><small>Stack: Rust, Advanced Encryption Methods</small></i>
-      <ul>
-        <li>
-          POC on a privacy-preserving storage for clinical data with special
-          encryption methods. The goal is to allow re-using & sharing data
-          easily across multiple actors, only if the patient allows it.
-        </li>
-        <li>
-          Reviewed several research papers to understand how these methods work,
-          their use cases, limitations, risks, etc.
-        </li>
-        <li>
-          Implemented a small POC with Rust:
-          <ul>
-            <li>Extremely CPU-efficient</li>
-            <li>
-              A POC isn't used in production, so it was a nice opportunity :)
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </Experience>
+  <Experience
+    title="End of studies project"
+    company="Conecs.io"
+    location="Montpellier, France"
+    startDate="Dec. 2023"
+    endDate="Feb. 2024"
+    img={Conecsio}
+    link="https://www.conecsio.com"
+  >
+    <i><small>Stack: Rust, Advanced Encryption Methods</small></i>
+    <ul>
+      <li>
+        POC on a privacy-preserving storage for clinical data with special
+        encryption methods. The goal is to allow re-using & sharing data easily
+        across multiple actors, only if the patient allows it.
+      </li>
+      <li>
+        Reviewed several research papers to understand how these methods work,
+        their use cases, limitations, risks, etc.
+      </li>
+      <li>
+        Implemented a small POC with Rust:
+        <ul>
+          <li>Extremely CPU-efficient</li>
+          <li>
+            A POC isn't used in production, so it was a nice opportunity :)
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </Experience>
 
-    <Line width="80%" />
+  <Line width="80%" />
 
-    <h1>2023</h1>
-    <Experience
-      title="Software Engineer Intern"
-      company="Scala Center"
-      location="Lausane, Switzerland"
-      startDate="Apri. 2023"
-      endDate="Aug. 2023"
-      img={ScalaCenter}
-      link="https://scala.epfl.ch"
-    >
-      <i><small>Tech: Scala, JVM, Scala-Java interop, Reflection</small></i>
-      <p>
-        Improved the Scala debugger in VS Code with a new evaluation mode, using
-        runtime reflection. It is limited to expressions that can be <u
-          >correctly</u
-        > evaluated at runtime (e.g., in the case of an overridden method, using reflection
-        we could pick a method different from what the compiler would have chosen).
-      </p>
-      <p>The evaluation is performed in 2 phases:</p>
-      <ol>
-        <li>
-          Validate the expression: correct syntax, evaluable using reflection.
-          Transform the expression AST into a custom ADT representing the
-          expression, that can later be evaluated.
-        </li>
-        <li>Evaluate the expression.</li>
-      </ol>
-      <p>
-        This evaluation includes a <InlineCode>pre-evaluation</InlineCode> mode.
-        Instead of using the compile-time type of a value, <u>if possible</u> we
-        evaluate it and use its runtime type. It eases the access to runtime information
-        during debugging.
-      </p>
-      <p>
-        I particularly enjoyed the compiler-related part of the project: ASTs,
-        type checking, overload resolution, etc.
-      </p>
-      <p>
-        As a secondary project, I helped with the implementation of Hot Code
-        Replacement (HCR). This means that we can now launch a debug session,
-        change the code, and just reload the session (so we keep the "progress"
-        made +/-) instead of restarting from the beginning.
-      </p>
-    </Experience>
+  <h1>2023</h1>
+  <Experience
+    title="Software Engineer Intern"
+    company="Scala Center"
+    location="Lausane, Switzerland"
+    startDate="Apri. 2023"
+    endDate="Aug. 2023"
+    img={ScalaCenter}
+    link="https://scala.epfl.ch"
+  >
+    <i><small>Tech: Scala, JVM, Scala-Java interop, Reflection</small></i>
+    <p>
+      Improved the Scala debugger in VS Code with a new evaluation mode, using
+      runtime reflection. It is limited to expressions that can be <u
+        >correctly</u
+      > evaluated at runtime (e.g., in the case of an overridden method, using reflection
+      we could pick a method different from what the compiler would have chosen).
+    </p>
+    <p>The evaluation is performed in 2 phases:</p>
+    <ol>
+      <li>
+        Validate the expression: correct syntax, evaluable using reflection.
+        Transform the expression AST into a custom ADT representing the
+        expression, that can later be evaluated.
+      </li>
+      <li>Evaluate the expression.</li>
+    </ol>
+    <p>
+      This evaluation includes a <InlineCode>pre-evaluation</InlineCode> mode. Instead
+      of using the compile-time type of a value, <u>if possible</u> we evaluate it
+      and use its runtime type. It eases the access to runtime information during
+      debugging.
+    </p>
+    <p>
+      I particularly enjoyed the compiler-related part of the project: ASTs,
+      type checking, overload resolution, etc.
+    </p>
+    <p>
+      As a secondary project, I helped with the implementation of Hot Code
+      Replacement (HCR). This means that we can now launch a debug session,
+      change the code, and just reload the session (so we keep the "progress"
+      made +/-) instead of restarting from the beginning.
+    </p>
+  </Experience>
 
-    <Line width="80%" />
+  <Line width="80%" />
 
-    <h1>2022</h1>
-    <Experience
-      title="Assistant Software Engineer"
-      company="Teads"
-      location="Montpellier, France"
-      startDate="Jun. 2022"
-      endDate="Aug. 2022"
-      img={Teads}
-      link={teadsLink}
-    >
-      <i>
-        <small
-          >Stack: Scala, Typescript, gRPC, React, Git, GitHub, Cypress, Jenkins
-        </small>
-      </i>
-      <p>
-        2-month internship where I worked on the V2 of their demo application. I
-        did some backend development with Scala & the Typelevel ecosystem
-        (Cats-effect, doobie...) followed by a more front-end part (in the end I
-        worked on both backend & frontend at the same time).
-      </p>
+  <h1>2022</h1>
+  <Experience
+    title="Assistant Software Engineer"
+    company="Teads"
+    location="Montpellier, France"
+    startDate="Jun. 2022"
+    endDate="Aug. 2022"
+    img={Teads}
+    link={teadsLink}
+  >
+    <i>
+      <small
+        >Stack: Scala, Typescript, gRPC, React, Git, GitHub, Cypress, Jenkins
+      </small>
+    </i>
+    <p>
+      2-month internship where I worked on the V2 of their demo application. I
+      did some backend development with Scala & the Typelevel ecosystem
+      (Cats-effect, doobie...) followed by a more front-end part (in the end I
+      worked on both backend & frontend at the same time).
+    </p>
 
-      <p>
-        For each feature I developed, I was responsible for the whole lifecycle:
-        code, test, deploy, refactor, fix bugs...
-      </p>
-    </Experience>
-  </main>
+    <p>
+      For each feature I developed, I was responsible for the whole lifecycle:
+      code, test, deploy, refactor, fix bugs...
+    </p>
+  </Experience>
 </Layout>
 
 <style>

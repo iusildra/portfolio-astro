@@ -12,24 +12,22 @@ import { Icon } from "astro-icon/components";
     <h1>Projects</h1>
   </section>
 
-  <main>
-    <section id="projects">
-      <h1>Portfolio</h1>
-      <a href="/" target="_blank">
-        <Image src={PortfolioThumb} alt="My Portfolio" />
+  <section id="projects">
+    <h1>Portfolio</h1>
+    <a href="/" target="_blank">
+      <Image src={PortfolioThumb} alt="My Portfolio" />
+    </a>
+    <Line />
+    <h1>
+      <a href={"https://github.com/ScalaIO/scala.io"} target="_blank">
+        Scala.IO webiste
+        <Icon name="mdi:link-variant" />
       </a>
-      <Line />
-      <h1>
-        <a href={"https://github.com/ScalaIO/scala.io"} target="_blank">
-          Scala.IO webiste
-          <Icon name="mdi:link-variant" />
-        </a>
-      </h1>
-      <a href="https://scala.io" target="_blank">
-        <Image src={ScalaIOThumb} alt="Scala.IO website" />
-      </a>
-    </section>
-  </main>
+    </h1>
+    <a href="https://scala.io" target="_blank">
+      <Image src={ScalaIOThumb} alt="Scala.IO website" />
+    </a>
+  </section>
 </Layout>
 
 <style>

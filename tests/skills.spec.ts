@@ -14,27 +14,31 @@ test.describe("Skills", () => {
     await expect(page.locator("#other-skills")).toBeInViewport();
   });
 
-  test("Skills paragraph do not overflow", async ({ page }) => {
+  test("Skills paragraph do not overflow", async ({ page, isMobile }) => {
     const skills = await page
       .locator("#main-skills")
       .locator(".skill-card")
       .all();
-    const rootFontSize = await page.locator("html").evaluate((html) => {
-      return parseInt(window.getComputedStyle(html).fontSize);
-    });
 
     for (const skill of skills) {
-      const skillSizes = (await skill.boundingBox())!;
-      const iconSizes = await skill.locator(".logo > svg").boundingBox();
-      const paragraphs = await skill.locator("p").all();
+      await skill.scrollIntoViewIfNeeded();
+      const { x: skillX, width: skillWidth } = (await skill.boundingBox())!;
+      const { width: iconWidth } = (await skill
+        .locator(".logo")
+        .boundingBox())!;
+      const elements = await skill
+        .locator(".description")
+        .filter()
+        .all();
 
-      expect(iconSizes?.width).toBe(4 * rootFontSize);
-
-      for (const paragraph of paragraphs) {
-        const pSizes = await paragraph.boundingBox();
-        expect(pSizes?.width).toBeLessThanOrEqual(
-          skillSizes.width - 6 * rootFontSize,
-        );
+      for (const element of elements) {
+        const { x: elX, width: elWidth } = (await element.boundingBox())!;
+        if (isMobile) {
+          expect(elX).toBeGreaterThanOrEqual(skillX);
+          expect(elX + elWidth).toBeLessThanOrEqual(skillX + skillWidth);
+        } else {
+          expect(elWidth).toBeLessThanOrEqual(skillWidth - iconWidth);
+        }
       }
     }
   });

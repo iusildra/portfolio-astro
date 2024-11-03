@@ -67,12 +67,12 @@ const defaultWidthPX = 512;
 <Layout title={config.index.title}>
   <section slot="hero" id="me">
     <div class="photo" id="photo-and-links">
-      <Image src={PP} alt="Profile picture" />
+      <Image src={PP} alt="That's me" loading="eager" />
       <div class="links">
         {
           socials.map(({ icon, href }) => (
             <a href={href} target="_blank">
-              <Icon name={icon} />
+              <Icon name={icon} title={`Link to ${href}`} />
             </a>
           ))
         }
@@ -94,186 +94,174 @@ const defaultWidthPX = 512;
     </div>
   </section>
 
-  <main>
-    <section id="about-me">
-      <h1>About me</h1>
-      <div class="bio">
-        <p>
-          Enthusiastic baby backend software engineer, who lost his way in the
-          frontend world (hence this website).
-        </p>
-        <p>
-          Scala and functional programming are my current passions, even though
-          I recently discovered with Scala.IO's website that CSS can be fun (but
-          let's not overdo it 🙂).
-        </p>
-        <p>
-          Ex-ArchLinux user (I got corrupted [again] by MacOS), I enjoy using
-          the command line for a better understanding of the tools I'm using and
-          spending hours tweaking my system according to my needs.
-        </p>
-      </div>
-
-      <Line />
-
-      <Cowsay />
-    </section>
+  <section id="about-me">
+    <h1>About me</h1>
+    <div class="bio">
+      <p>
+        Enthusiastic baby backend software engineer, who lost his way in the
+        frontend world (hence this website).
+      </p>
+      <p>
+        Scala and functional programming are my current passions, even though I
+        recently discovered with Scala.IO's website that CSS can be fun (but
+        let's not overdo it 🙂).
+      </p>
+      <p>
+        Ex-ArchLinux user (I got corrupted [again] by MacOS), I enjoy using the
+        command line for a better understanding of the tools I'm using and
+        spending hours tweaking my system according to my needs.
+      </p>
+    </div>
 
     <Line />
 
-    <section id="cv">
-      <PDF src={CV} height="1200px" />
-    </section>
+    <Cowsay />
+  </section>
 
-    <Line />
+  <Line />
 
-    <section id="education">
-      <h1>Education</h1>
+  <section id="cv">
+    <PDF src={CV} height="1200px" />
+  </section>
 
-      <Experience
-        title="Engineering Degree in Computer Science"
-        company="Polytech Montpellier"
-        location="Montpellier, France"
-        startDate="Sept. 2021"
-        endDate="Aug. 2024"
-        img={Polytech}
-        link="https://www.polytech.umontpellier.fr"
-      >
-        <i>Equivalent to a Master's degree</i>
-        <p>
-          3-year specialization in Computer Science with a minor in management
-        </p>
-        <ul>
-          <li>Software Engineering: Algorithms, Design Patterns, UML</li>
-          <li>Web Development: front-end, back-end</li>
-          <li>Databases: SQL & NoSQL</li>
-          <li>Cloud: Docker, Deployment</li>
-          <li>Data Science: statistics, ML</li>
-          <li>Management: project management, accountability, finance</li>
-        </ul>
-      </Experience>
-    </section>
+  <Line />
 
-    <Line />
+  <section id="education">
+    <h1>Education</h1>
 
-    <section id="certificates">
-      <h1>Certificates</h1>
+    <Experience
+      title="Engineering Degree in Computer Science"
+      company="Polytech Montpellier"
+      location="Montpellier, France"
+      startDate="Sept. 2021"
+      endDate="Aug. 2024"
+      img={Polytech}
+      link="https://www.polytech.umontpellier.fr"
+    >
+      <i>Equivalent to a Master's degree</i>
+      <p>
+        3-year specialization in Computer Science with a minor in management
+      </p>
+      <ul>
+        <li>Software Engineering: Algorithms, Design Patterns, UML</li>
+        <li>Web Development: front-end, back-end</li>
+        <li>Databases: SQL & NoSQL</li>
+        <li>Cloud: Docker, Deployment</li>
+        <li>Data Science: statistics, ML</li>
+        <li>Management: project management, accountability, finance</li>
+      </ul>
+    </Experience>
+  </section>
 
-      <div class="certs">
-        <SkillLogo name="TOEIC">
-          <Icon slot="skill-logo" name="mdi:book-open-variant" />
+  <Line />
+
+  <section id="certificates">
+    <h1>Certificates</h1>
+
+    <div class="certs">
+      <SkillLogo name="TOEIC">
+        <Icon slot="skill-logo" name="mdi:book-open-variant" />
+      </SkillLogo>
+      <SkillLogo name="First aids">
+        <Icon slot="skill-logo" name="mdi:first-aid-kit" />
+      </SkillLogo>
+      <SkillLogo name="Driving license">
+        <Icon slot="skill-logo" name="mdi:car" />
+      </SkillLogo>
+      <div class="trolling" id="bike-trolling">
+        <SkillLogo name="City Biking license">
+          <Icon slot="skill-logo" name="mdi:bike" />
         </SkillLogo>
-        <SkillLogo name="First aids">
-          <Icon slot="skill-logo" name="mdi:first-aid-kit" />
-        </SkillLogo>
-        <SkillLogo name="Driving license">
-          <Icon slot="skill-logo" name="mdi:car" />
-        </SkillLogo>
-        <div class="trolling" id="bike-trolling">
-          <SkillLogo name="City Biking license">
-            <Icon slot="skill-logo" name="mdi:bike" />
-          </SkillLogo>
-          <div class="troller">
-            <Image src={Trollface} alt="Trollface" width={64} />
-          </div>
+        <div class="troller">
+          <Image src={Trollface} alt="Trollface" width={64} />
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <Line />
+  <Line />
 
-    <section id="hobbies">
-      <h1>Hobbies</h1>
+  <section id="hobbies">
+    <h1>Hobbies</h1>
 
-      <h2>Bike</h2>
-      <div class="hobby">
-        <Image src={BikeAlps} alt="Bike with the Alps" width={defaultWidthPX} />
-        <Image src={BikeBern} alt="Bike at Bern" width={defaultWidthPX} />
-        <Image src={BikeTravel} alt="Bike loaded" width={defaultWidthPX} />
-        <Image src={BikeCamp} alt="Bike & hammoc" width={defaultWidthPX} />
-        <Image src={BikeDam} alt="Bike on a dam" width={defaultWidthPX} />
-        <Image
-          src={BikeCanal}
-          alt="Bike between waterways"
-          width={defaultWidthPX}
-        />
-      </div>
+    <h2>Bike</h2>
+    <div class="hobby">
+      <Image src={BikeAlps} alt="Bike with the Alps" width={defaultWidthPX} />
+      <Image src={BikeBern} alt="Bike at Bern" width={defaultWidthPX} />
+      <Image src={BikeTravel} alt="Bike loaded" width={defaultWidthPX} />
+      <Image src={BikeCamp} alt="Bike & hammoc" width={defaultWidthPX} />
+      <Image src={BikeDam} alt="Bike on a dam" width={defaultWidthPX} />
+      <Image
+        src={BikeCanal}
+        alt="Bike between waterways"
+        width={defaultWidthPX}
+      />
+    </div>
 
-      <h2>Outdoors</h2>
-      <div class="hobby">
-        <Image src={Alps} alt="Alps" width={defaultWidthPX} />
-        <Image src={Camp} alt="Camp" width={defaultWidthPX} />
-        <Image src={MountainGoat} alt="Mountain goat" width={defaultWidthPX} />
-        <Image src={Shroom} alt="Mushroom" width={defaultWidthPX} />
-        <Image src={ViaFerrata} alt="Via ferrata" width={defaultWidthPX} />
-        <Image src={Wandering} alt="Wandering" width={defaultWidthPX} />
-      </div>
+    <h2>Outdoors</h2>
+    <div class="hobby">
+      <Image src={Alps} alt="Alps" width={defaultWidthPX} />
+      <Image src={Camp} alt="Camp" width={defaultWidthPX} />
+      <Image src={MountainGoat} alt="Mountain goat" width={defaultWidthPX} />
+      <Image src={Shroom} alt="Mushroom" width={defaultWidthPX} />
+      <Image src={ViaFerrata} alt="Via ferrata" width={defaultWidthPX} />
+      <Image src={Wandering} alt="Wandering" width={defaultWidthPX} />
+    </div>
 
-      <h2>Photo</h2>
-      <div class="hobby">
-        <Image
-          src={Astro1}
-          alt="Stars"
-          width={defaultWidthPX}
-          class="hobby-2-row"
-        />
-        <Image src={Cow} alt="Cow" width={defaultWidthPX} />
-        <Image
-          src={Bee2}
-          alt="Bee"
-          width={defaultWidthPX}
-          class="hobby-2-row"
-        />
-        <Image src={Mordor} alt="Welcome to mordor" width={defaultWidthPX} />
-        <Image
-          src={Swan}
-          alt="Swan"
-          width={defaultWidthPX}
-          class="hobby-2-row"
-        />
-        <Image src={Astro2} alt="Stars" width={defaultWidthPX} />
-        <Image
-          src={Horses}
-          alt="Horses"
-          width={defaultWidthPX}
-          class="hobby-2-row"
-        />
-        <Image src={Bee1} alt="Bee" width={defaultWidthPX} />
-      </div>
+    <h2>Photo</h2>
+    <div class="hobby">
+      <Image
+        src={Astro1}
+        alt="Stars"
+        width={defaultWidthPX}
+        class="hobby-2-row"
+      />
+      <Image src={Cow} alt="Cow" width={defaultWidthPX} />
+      <Image src={Bee2} alt="Bee" width={defaultWidthPX} class="hobby-2-row" />
+      <Image src={Mordor} alt="Welcome to mordor" width={defaultWidthPX} />
+      <Image src={Swan} alt="Swan" width={defaultWidthPX} class="hobby-2-row" />
+      <Image src={Astro2} alt="Stars" width={defaultWidthPX} />
+      <Image
+        src={Horses}
+        alt="Horses"
+        width={defaultWidthPX}
+        class="hobby-2-row"
+      />
+      <Image src={Bee1} alt="Bee" width={defaultWidthPX} />
+    </div>
 
-      <h2>Cooking</h2>
-      <div class="hobby">
-        <Image
-          src={Cheesecake}
-          alt="Cheesecake"
-          width={defaultWidthPX}
-          class="hobby-2-row"
-        />
-        <Image src={Buns} alt="Buns" width={defaultWidthPX} />
-        <Image
-          src={sirup}
-          alt="Sirup"
-          width={defaultWidthPX}
-          class="hobby-2-row"
-        />
-        <Image src={Canneles} alt="Canneles" width={defaultWidthPX} />
-        <Image
-          src={CinamonBalls}
-          alt="Cinamon balls"
-          width={defaultWidthPX}
-          class="hobby-2-row"
-        />
-        <Image src={CinamonRolls} alt="Cinamon rolls" width={defaultWidthPX} />
-        <Image
-          src={Loukoum}
-          alt="Loukoum"
-          width={defaultWidthPX}
-          class="hobby-2-row"
-        />
-        <Image src={Naans} alt="Naans" width={defaultWidthPX} />
-      </div>
-    </section>
-  </main>
+    <h2>Cooking</h2>
+    <div class="hobby">
+      <Image
+        src={Cheesecake}
+        alt="Cheesecake"
+        width={defaultWidthPX}
+        class="hobby-2-row"
+      />
+      <Image src={Buns} alt="Buns" width={defaultWidthPX} />
+      <Image
+        src={sirup}
+        alt="Sirup"
+        width={defaultWidthPX}
+        class="hobby-2-row"
+      />
+      <Image src={Canneles} alt="Canneles" width={defaultWidthPX} />
+      <Image
+        src={CinamonBalls}
+        alt="Cinamon balls"
+        width={defaultWidthPX}
+        class="hobby-2-row"
+      />
+      <Image src={CinamonRolls} alt="Cinamon rolls" width={defaultWidthPX} />
+      <Image
+        src={Loukoum}
+        alt="Loukoum"
+        width={defaultWidthPX}
+        class="hobby-2-row"
+      />
+      <Image src={Naans} alt="Naans" width={defaultWidthPX} />
+    </div>
+  </section>
 </Layout>
 
 <style>
@@ -308,7 +296,7 @@ const defaultWidthPX = 512;
     .photo,
     #my-info {
       opacity: 0;
-      transition: all 1s ease;
+      transition: all 0.5s ease-in-out;
       &.appear {
         opacity: 1;
       }
