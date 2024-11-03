@@ -7,6 +7,7 @@ test.describe.serial("Landing page", () => {
   });
 
   test("Is correct", async ({ page }) => {
+    test.skip(!!process.env.CI, "Skipping visual tests on CI (no screenshots on linux)");
     await expect(page.locator("header").nth(0)).toBeVisible(); // The dev toolbar contains a header
     await expect(page).toHaveTitle(config.index.title);
     await page.waitForTimeout(1000);
