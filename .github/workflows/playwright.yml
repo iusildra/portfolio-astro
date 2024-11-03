@@ -8,6 +8,9 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.48.1-jammy
+      options: --user 1001
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
@@ -17,8 +20,6 @@ jobs:
         cache-dependency-path: ./pnpm-lock.yaml
     - name: Install dependencies
       run: npm install -g pnpm && pnpm install
-    - name: Install Playwright Browsers
-      run: pnpm exec playwright install --with-deps
     - name: Run Playwright tests
       run: pnpm run test
     - uses: actions/upload-artifact@v4
