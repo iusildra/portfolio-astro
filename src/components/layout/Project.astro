@@ -1,12 +1,35 @@
+---
+interface Props {
+  title: string;
+  start?: string;
+  end?: string;
+}
+
+const { title, start, end } = Astro.props;
+---
+
 <div class="project">
   <div>
-    <slot name="title" />
+    <div>
+      <h2>{title}</h2>
+      {
+        start && end ? (
+          <h3>
+            {start} - {end}
+          </h3>
+        ) : null
+      }
+    </div>
     <slot name="image" />
   </div>
   <slot />
 </div>
 
 <style>
+  .project > div > div > * {
+    margin: 0.5em 0;
+  }
+
   .project {
     & > div {
       display: flex;
