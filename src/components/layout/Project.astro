@@ -1,0 +1,28 @@
+<div class="project">
+  <div>
+    <slot name="title" />
+    <slot name="image" />
+  </div>
+  <slot />
+</div>
+
+<style>
+  .project {
+    & > div {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2em;
+      width: 100%;
+    }
+
+    & > a {
+      display: block;
+      & > img {
+        display: block;
+        margin: auto;
+      }
+    }
+  }
+</style>

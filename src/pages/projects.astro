@@ -8,6 +8,7 @@ import ScalaIOThumb from "../images/thumbnails/ScalaIO_large.webp";
 import ScalaIOGH from "../images/thumbnails/ScalaIO-github-og.webp";
 import ScalaDebug from "../images/thumbnails/scala-debug-adapter-github-og.webp";
 import InlineCode from "../components/elements/InlineCode.astro";
+import Project from "../components/layout/Project.astro";
 ---
 
 <Layout title="Projects">
@@ -22,7 +23,7 @@ import InlineCode from "../components/elements/InlineCode.astro";
         <a href="https://github.com/iusildra/portfolio-astro">
           <Image src={PortfolioGH} alt="Portfolio GitHub" width={256} />
         </a>
-      </div>
+      </slot>
       <p>
         I've already started a few portfolio projects, but I don't think I ever
         got close to having one single complete page 😅. ScalaIO's website
@@ -43,18 +44,20 @@ import InlineCode from "../components/elements/InlineCode.astro";
         Just putting the preview & link below for consistency with the layout,
         but I don't think it's necessary ^^
       </p>
-    </div>
-    <a href="/" target="_blank">
-      <Image src={PortfolioThumb} alt="My Portfolio" width={512} />
-    </a>
+      <a href="/" target="_blank">
+        <Image src={PortfolioThumb} alt="My Portfolio" width={512} />
+      </a>
+    </Project>
+
     <Line />
-    <div class="project">
-      <div>
-        <h2>Scala.IO website</h2>
+
+    <Project>
+      <slot slot="title"><h2>Scala.IO website</h2></slot>
+      <slot slot="image">
         <a href="https://github.com/SCalaIO/scala.io">
           <Image src={ScalaIOGH} alt="ScalaIO GitHub" width={256} />
         </a>
-      </div>
+      </slot>
       <p>
         I took on the rewrite of the Scala.IO website using <a
           href="https://www.scala-js.org">Scala.js</a
@@ -86,27 +89,27 @@ import InlineCode from "../components/elements/InlineCode.astro";
         </ul>
       </p>
       <p>
-        I won't dare say that I can be a UI/UX designer, but given the starting
-        point, I'm quite happy with the result 😄
+        I won't dare saying that I can be a UI/UX designer, but given the
+        starting point, I'm quite happy with the result 😄
       </p>
       <a href="https://scala.io" target="_blank">
         <Image src={ScalaIOThumb} alt="Scala.IO website" width={512} />
       </a>
-    </div>
+    </Project>
 
     <Line />
 
-    <div class="project">
-      <div>
-        <h2>scala-debug-adapter</h2>
+    <Project>
+      <slot slot="title"><h2>scala-debug-adapter</h2></slot>
+      <slot slot="image">
         <a href="https://github.com/scalacenter/scala-debug-adapter">
           <Image
             src={ScalaDebug}
             alt="Scala Debug Adapter GitHub"
             width={256}
-          /></a
-        >
-      </div>
+          />
+        </a>
+      </slot>
       <p>
         The implementation of the Debugger Adapter Protocol (DAP) for VS Code.
         Basically, what runs when starting a debug session in Scala with VS Code
@@ -129,58 +132,24 @@ import InlineCode from "../components/elements/InlineCode.astro";
         & other activities, but I'll manage to find some time to contribute
         again
       </p>
-    </div>
+    </Project>
   </section>
-
-  <style>
-    h1 {
-      text-align: center;
-    }
-
-    #projects {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      & > div:first-child {
-        margin-top: var(--padding);
-      }
-    }
-
-    .project {
-      & > div {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        gap: 2em;
-        width: 100%;
-      }
-
-      & > a {
-        display: block;
-        & > img {
-          display: block;
-          margin: auto;
-        }
-      }
-
-      ul li:not(:last-child) {
-        margin-bottom: calc(0.5 * var(--padding));
-      }
-    }
-
-    h1 {
-      text-align: center;
-      transition: all 0.5s ease;
-      svg {
-        margin-left: 0.5rem;
-      }
-    }
-
-    img {
-      max-width: min(512px, 100%);
-      height: auto;
-    }
-  </style>
 </Layout>
+
+<style>
+  #projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: calc(4 * var(--padding));
+
+    ul li:not(:last-child) {
+      margin-bottom: calc(var(--padding));
+    }
+  }
+
+  img {
+    max-width: min(512px, 100%);
+    height: auto;
+  }
+</style>
