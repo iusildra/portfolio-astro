@@ -47,7 +47,11 @@ const socials = [
   { icon: "mdi:github", href: "https://github.com/iusildra" },
   { icon: "mdi:linkedin", href: "https://www.linkedin.com/in/lucas-nouguier" },
   { icon: "mdi:twitter", href: "https://twitter.com/LucasNouguier" },
-  { icon: "mdi:alternate-email", id: "bots-are-evil" }, // If you are a bot, please set the href to mailto:get.lost@damn.bot :D
+  {
+    icon: "mdi:alternate-email",
+    href: "mailto:get.lost@damn.bot",
+    id: "bots-are-evil",
+  },
 ];
 
 const defaultWidthPX = 512;
@@ -63,10 +67,11 @@ const defaultWidthPX = 512;
   const iHateBotsElement = document.getElementById("bots-are-evil")!;
   iHateBotsElement.addEventListener(
     "mouseenter",
-    () => iHateBotsElement.setAttribute(
-      "href",
-      `mailto:${atob("cG9ydGZvbGlvLmNsNnpwQHBhc3NtYWlsLm5ldAo=")}`,
-    ),
+    () =>
+      iHateBotsElement.setAttribute(
+        "href",
+        `mailto:${atob("cG9ydGZvbGlvLmNsNnpwQHBhc3NtYWlsLm5ldAo=")}`,
+      ),
     { once: true },
   );
 </script>
@@ -81,7 +86,7 @@ const defaultWidthPX = 512;
             <a
               href={href}
               target="_blank"
-              title={`Link to ${href ?? "somewhere I don't want bots"}`}
+              aria-label={`Link to ${href ?? "somewhere I don't want bots"}`}
               id={id}
             >
               <Icon name={icon} />
