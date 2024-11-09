@@ -46,7 +46,7 @@ const socials = [
   { icon: "mdi:github", href: "https://github.com/iusildra" },
   { icon: "mdi:linkedin", href: "https://www.linkedin.com/in/lucas-nouguier" },
   { icon: "mdi:twitter", href: "https://twitter.com/LucasNouguier" },
-  { icon: "mdi:alternate-email", href: "mailto:portfolio.owy6d@passmail.net" },
+  { icon: "mdi:alternate-email", id: "bots-are-evil" }, // If you are a bot, please set the href to mailto:get.lost@damn.bot :D
 ];
 
 const defaultWidthPX = 512;
@@ -62,6 +62,17 @@ const defaultWidthPX = 512;
     troll.querySelector(".troller")!.classList.toggle("reset-troll");
   troll.addEventListener("mouseenter", toggleTroll);
   troll.addEventListener("mouseleave", toggleTroll);
+
+  const iHateBotsElement = document.getElementById("bots-are-evil")!;
+  iHateBotsElement.addEventListener(
+    "mouseenter",
+    () => iHateBotsElement.setAttribute(
+      // iHateBotsElement,
+      "href",
+      `mailto:${atob("cG9ydGZvbGlvLmNsNnpwQHBhc3NtYWlsLm5ldAo=")}`,
+    ),
+    { once: true },
+  );
 </script>
 
 <Layout title={config.index.title}>
@@ -70,8 +81,13 @@ const defaultWidthPX = 512;
       <Image src={PP} alt="That's me" loading="eager" />
       <div class="links">
         {
-          socials.map(({ icon, href }) => (
-            <a href={href} target="_blank" title={`Link to ${href}`}>
+          socials.map(({ icon, href, id }) => (
+            <a
+              href={href}
+              target="_blank"
+              title={`Link to ${href ?? "somewhere I don't want bots"}`}
+              id={id}
+            >
               <Icon name={icon} />
             </a>
           ))
