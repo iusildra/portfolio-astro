@@ -41,7 +41,6 @@ import Experience from "../components/layout/Experience.astro";
 import Polytech from "../images/companies/Polytech.webp";
 import PDF from "../components/elements/PDF.astro";
 import CV from "../pdf/CV_Lucas_NOUGUIER.pdf";
-import globals from "../css/globals.module.css";
 
 const socials = [
   { icon: "mdi:github", href: "https://github.com/iusildra" },
@@ -175,18 +174,18 @@ const defaultWidthPX = 512;
   <section id="certificates">
     <h1>Certificates</h1>
 
-    <div class="certs flex row">
+    <div class="certs flex row center">
       <SkillLogo name="TOEIC">
         <Icon slot="skill-logo" name="mdi:book-open-variant" />
       </SkillLogo>
       <SkillLogo name="First aids">
         <Icon slot="skill-logo" name="mdi:first-aid-kit" />
       </SkillLogo>
-      <SkillLogo name="Driving license">
+      <SkillLogo name="Driver">
         <Icon slot="skill-logo" name="mdi:car" />
       </SkillLogo>
       <div class="trolling" id="bike-trolling">
-        <SkillLogo name="City Biking license">
+        <SkillLogo name="City Biking">
           <Icon slot="skill-logo" name="mdi:bike" />
         </SkillLogo>
         <div class="troller">
@@ -200,6 +199,35 @@ const defaultWidthPX = 512;
 
   <section id="hobbies">
     <h1>Hobbies</h1>
+    <div class="flex row center">
+      <SkillLogo name="Biking">
+        <Icon slot="skill-logo" name="mdi:bike" />
+      </SkillLogo>
+      <SkillLogo name="Swimming">
+        <Icon slot="skill-logo" name="mdi:swim" />
+      </SkillLogo>
+      <SkillLogo name="Martial Arts">
+        <Icon slot="skill-logo" name="mdi:martial-arts" />
+      </SkillLogo>
+      <SkillLogo name="Via ferrata">
+        <Icon slot="skill-logo" name="map:climbing" />
+      </SkillLogo>
+      <SkillLogo name="Hiking">
+        <Icon slot="skill-logo" name="mdi:hiking" />
+      </SkillLogo>
+      <SkillLogo name="Hanging out">
+        <Icon slot="skill-logo" name="mdi:party-popper" />
+      </SkillLogo>
+      <SkillLogo name="Cooking">
+        <Icon slot="skill-logo" name="mdi:cook" />
+      </SkillLogo>
+    </div>
+  </section>
+
+  <Line />
+
+  <section id="hobbies-photos">
+    <h1>Some pictures</h1>
 
     <h2>Bike</h2>
     <div class="hobby">
@@ -328,7 +356,7 @@ const defaultWidthPX = 512;
   }
 
   .certs {
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
   }
 
   .trolling {
@@ -345,8 +373,8 @@ const defaultWidthPX = 512;
       opacity: 0;
 
       img {
-        width: auto;
-        height: 100%;
+        width: 100%;
+        height: auto;
       }
     }
 
@@ -356,11 +384,10 @@ const defaultWidthPX = 512;
     }
   }
 
-  #hobbies {
+  #hobbies-photos {
     h2 {
       text-align: center;
     }
-
     img {
       max-width: min(512px, 100%);
       width: auto;

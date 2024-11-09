@@ -166,21 +166,24 @@ const { title } = Astro.props;
     }
   }
 
+  .w-full {
+    width: 100%;
+  }
+
   svg {
     width: var(--icon-size);
     height: var(--icon-size);
   }
 
   .flex {
+    display: flex;
     &.row {
-      display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       gap: var(--gap);
     }
 
     &.column {
-      display: flex;
       flex-direction: column;
       gap: var(--gap);
     }

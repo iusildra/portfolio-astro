@@ -43,9 +43,11 @@ import Project from "../components/layout/Project.astro";
         Just putting the preview & link below for consistency with the layout,
         but I don't think it's necessary ^^
       </p>
-      <a href="/" target="_blank">
-        <Image src={PortfolioThumb} alt="My Portfolio" width={512} />
-      </a>
+      <slot slot="footer">
+        <a href="/" target="_blank">
+          <Image src={PortfolioThumb} alt="My Portfolio" width={512} />
+        </a>
+      </slot>
     </Project>
 
     <Line />
@@ -90,9 +92,11 @@ import Project from "../components/layout/Project.astro";
         I won't dare saying that I can be a UI/UX designer, but given the
         starting point, I'm quite happy with the result 😄
       </p>
-      <a href="https://scala.io" target="_blank">
-        <Image src={ScalaIOThumb} alt="Scala.IO website" width={512} />
-      </a>
+      <slot slot="footer">
+        <a href="https://scala.io" target="_blank">
+          <Image src={ScalaIOThumb} alt="Scala.IO website" width={512} />
+        </a>
+      </slot>
     </Project>
 
     <Line />
@@ -140,5 +144,9 @@ import Project from "../components/layout/Project.astro";
     ul li:not(:last-child) {
       margin-bottom: calc(var(--padding));
     }
+  }
+
+  div > a {
+    margin: auto;
   }
 </style>
