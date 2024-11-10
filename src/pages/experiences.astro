@@ -10,18 +10,9 @@ import InlineCode from "../components/InlineCode.astro";
 const teadsLink = "https://www.teads.com";
 ---
 
-<script>
-  import { sequencedTransitions } from "../utils/Transitions";
-
-  sequencedTransitions(
-    document.querySelectorAll("#page-header > *")!,
-    "appear",
-  );
-</script>
-
 <Layout title="Experiences">
   <section slot="hero" id="page-header">
-    <h1>Experiences</h1>
+    <h1 class="anim-fade-translate">Experiences</h1>
   </section>
 
   <h1>2024</h1>
@@ -211,26 +202,3 @@ const teadsLink = "https://www.teads.com";
     </p>
   </Experience>
 </Layout>
-
-<style>
-  :root {
-    --padding: 1rem;
-  }
-
-  #page-header > * {
-    opacity: 0;
-    transform: translateY(100%);
-    transition:
-      opacity 1s ease,
-      transform 1s ease;
-
-    &.appear {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  h1 {
-    text-align: center;
-  }
-</style>
