@@ -28,7 +28,7 @@ test.describe.serial("Landing page", () => {
 
   test("Has correct de-obfuscated email link", async ({ page }) => {
     const email = page.locator("#bots-are-evil");
-    await expect(email).toHaveJSProperty("href", "");
+    await expect(email).toHaveJSProperty("href", "mailto:get.lost@damn.bot");
     await email.hover();
     await expect(email).toHaveJSProperty("href", "mailto:portfolio.cl6zp@passmail.net");
   });
