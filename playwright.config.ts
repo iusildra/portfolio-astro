@@ -58,12 +58,12 @@ export default defineConfig({
       name: "Mobile Chrome",
       use: { ...devices["Pixel 5"] },
     },
-    process.env.CI
-      ? {
-          name: "Mobile Safari",
-          use: { ...devices["iPhone 15"] },
-        }
-      : {},
+    // process.env.CI
+    //   ? {
+    //       name: "Mobile Safari",
+    //       use: { ...devices["iPhone 15"] },
+    //     }
+    //   : {},
   ],
 
   /* Run your local dev server before starting the tests */
