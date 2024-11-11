@@ -4,15 +4,21 @@ import Project from "../components/layout/Project.astro";
 import Layout from "../layouts/Layout.astro";
 import SunnyTech from "../images/companies/SunnyTech.svg";
 import ScalaIO from "../images/companies/Scalaio.svg";
+import Polytech from "../images/companies/Polytech.webp";
 import { Image } from "astro:assets";
+import Link from "../components/elements/Link.astro";
 ---
 
 <Layout title="Engagement">
   <section slot="hero" id="page-header">
     <h1 class="anim-fade-translate">Engagement</h1>
+    <div class="flex row anim-fade-translate">
+      <Link link="#conferences" kind={"outline"}>Conferences</Link>
+      <Link link="#courses" kind={"outline"}>Courses</Link>
+    </div>
   </section>
 
-  <section id="engagement">
+  <section id="conferences">
     <h1>Conferences</h1>
     There are globally a few reasons I chose to actively participate in the organization
     of conferences, with some of them being:
@@ -36,7 +42,11 @@ import { Image } from "astro:assets";
     <Project title="SunnyTech" start="Sept. 2022" end="today">
       <slot slot="image">
         <a href="https://sunny-tech.io">
-          <Image src={SunnyTech} alt="SunnyTech" width={256} />
+          <Image
+            src={SunnyTech}
+            alt="SunnyTech"
+            style={{ maxHeight: "7rem", width: "auto" }}
+          />
         </a>
       </slot>
       <p>
@@ -55,6 +65,7 @@ import { Image } from "astro:assets";
         review it to avoid errors and send it right away 💪
       </p>
     </Project>
+
     <Line />
 
     <Project title="Scala.IO" start="Jun. 2023" end="today">
@@ -80,6 +91,48 @@ import { Image } from "astro:assets";
         year later ✨
       </p>
     </Project>
-    <Line />
+  </section>
+
+  <Line width="80%" />
+
+  <section id="courses">
+    <h1>Courses</h1>
+
+    <Project
+      title="Introduction to FP with Scala"
+      start="Mar. 2024"
+      end="no yet ^^"
+    >
+      <slot slot="image">
+        <a
+          href="https://polytech.umontpellier.fr"
+          aria-label="Polytech Montpellier"
+        >
+          <Image
+            src={Polytech}
+            alt="Polytech Montpellier"
+            style={{ maxHeight: "7rem", width: "auto" }}
+          />
+        </a>
+      </slot>
+      <p>
+        To begin with, I always enjoyed explaining things to others. So I
+        started with a 3-hour course about Scala & parser combinators in Nov.
+        2024 (the story is quite funny actually)
+      </p>
+      <p>
+        Then as I gratuated I offered myself to take on a part of the course we
+        had about Scala & functional programming as these are what I'm the most
+        fluent with. It would be the introduction (basics of FP and Scala), so
+        that the next teacher can follow up with more advanced topics to show
+        real world usage (e.g. effect systems)
+      </p>
+      <p>
+        My "first students" will be people with whom I hang out and drink some
+        beers, that's kinda funny to think about
+      </p>
+    </Project>
   </section>
 </Layout>
+
+<style define:vars={{ gap: "2rem" }}></style>

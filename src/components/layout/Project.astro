@@ -20,7 +20,7 @@ const { title, start, end } = Astro.props;
         ) : null
       }
     </div>
-    <slot name="image" />
+    <slot name="image" class="capped-height"/>
   </div>
   <slot />
   <div class="flex center w-full">
@@ -31,6 +31,13 @@ const { title, start, end } = Astro.props;
 <style define:vars={{ gap: "2rem" }}>
   .project > div > div > * {
     margin: 0.5em 0;
+  }
+
+  .flex > div:nth-child(1) {
+    flex: 1 1 60%;
+  }
+  .flex > div:nth-child(2) {
+    flex: 1 1 30%;
   }
 
   .project {
