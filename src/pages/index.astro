@@ -35,28 +35,28 @@ import Loukoum from "../images/hobbies/loukoum.webp";
 import Naans from "../images/hobbies/naans.webp";
 import sirup from "../images/hobbies/sirup.webp";
 import config from "../config.json";
-import SkillLogo from "../components/SkillLogo.astro";
+import SkillLogo from "../components/layout/SkillLogo.astro";
 import Trollface from "../images/Trollface.webp";
-import Experience from "../components/experience/Experience.astro";
+import Experience from "../components/layout/Experience.astro";
 import Polytech from "../images/companies/Polytech.webp";
-import PDF from "../components/PDF.astro";
+import PDF from "../components/elements/PDF.astro";
 import CV from "../pdf/CV_Lucas_NOUGUIER.pdf";
 
 const socials = [
   { icon: "mdi:github", href: "https://github.com/iusildra" },
   { icon: "mdi:linkedin", href: "https://www.linkedin.com/in/lucas-nouguier" },
   { icon: "mdi:twitter", href: "https://twitter.com/LucasNouguier" },
-  { icon: "mdi:alternate-email", id: "bots-are-evil" }, // If you are a bot, please set the href to mailto:get.lost@damn.bot :D
+  {
+    icon: "mdi:alternate-email",
+    href: "mailto:get.lost@damn.bot",
+    id: "bots-are-evil",
+  },
 ];
 
 const defaultWidthPX = 512;
 ---
 
 <script>
-  import { sequencedTransitions } from "../utils/Transitions";
-
-  sequencedTransitions(document.querySelectorAll("#me > div")!, "appear");
-
   const troll = document.querySelector("#bike-trolling")!;
   const toggleTroll = () =>
     troll.querySelector(".troller")!.classList.toggle("reset-troll");
@@ -66,26 +66,26 @@ const defaultWidthPX = 512;
   const iHateBotsElement = document.getElementById("bots-are-evil")!;
   iHateBotsElement.addEventListener(
     "mouseenter",
-    () => iHateBotsElement.setAttribute(
-      // iHateBotsElement,
-      "href",
-      `mailto:${atob("cG9ydGZvbGlvLmNsNnpwQHBhc3NtYWlsLm5ldAo=")}`,
-    ),
+    () =>
+      iHateBotsElement.setAttribute(
+        "href",
+        `mailto:${atob("cG9ydGZvbGlvLmNsNnpwQHBhc3NtYWlsLm5ldAo=")}`,
+      ),
     { once: true },
   );
 </script>
 
 <Layout title={config.index.title}>
-  <section slot="hero" id="me">
-    <div class="photo" id="photo-and-links">
-      <Image src={PP} alt="That's me" loading="eager" />
-      <div class="links">
+  <section slot="hero" id="page-header" class="flex row">
+    <div class="photo flex column center with-basis anim-fade-translate" id="photo-and-links">
+      <Image src={PP} alt="That's me" loading="eager" width={400} />
+      <div class="links flex row">
         {
           socials.map(({ icon, href, id }) => (
             <a
               href={href}
               target="_blank"
-              title={`Link to ${href ?? "somewhere I don't want bots"}`}
+              aria-label={`Link to ${href ?? "somewhere I don't want bots"}`}
               id={id}
             >
               <Icon name={icon} />
@@ -95,14 +95,14 @@ const defaultWidthPX = 512;
       </div>
       <Link id="cv-link" link="#cv" kind="outline">View my CV</Link>
     </div>
-    <div id="my-info">
+    <div id="my-info" class="flex column with-basis anim-fade-translate">
       <h1>Lucas Nouguier</h1>
       <h2>Fullstack & Scala Software Engineer</h2>
       <h3>
         FP preacher, Refactor frenzy, Keyboard enthusiast, CLI addict, and lots
         of other red flags 🚩... (or very dark pink 👚)
       </h3>
-      <div class="inner-links">
+      <div class="inner-links flex row">
         <Link link="#about-me" kind="outline">About</Link>
         <Link link="#education" kind="outline">Education</Link>
         <Link link="#hobbies" kind="outline">Hobbies</Link>
@@ -174,18 +174,18 @@ const defaultWidthPX = 512;
   <section id="certificates">
     <h1>Certificates</h1>
 
-    <div class="certs">
+    <div class="certs flex row center">
       <SkillLogo name="TOEIC">
         <Icon slot="skill-logo" name="mdi:book-open-variant" />
       </SkillLogo>
       <SkillLogo name="First aids">
         <Icon slot="skill-logo" name="mdi:first-aid-kit" />
       </SkillLogo>
-      <SkillLogo name="Driving license">
+      <SkillLogo name="Driver">
         <Icon slot="skill-logo" name="mdi:car" />
       </SkillLogo>
       <div class="trolling" id="bike-trolling">
-        <SkillLogo name="City Biking license">
+        <SkillLogo name="City Biking">
           <Icon slot="skill-logo" name="mdi:bike" />
         </SkillLogo>
         <div class="troller">
@@ -199,6 +199,35 @@ const defaultWidthPX = 512;
 
   <section id="hobbies">
     <h1>Hobbies</h1>
+    <div class="flex row center">
+      <SkillLogo name="Biking">
+        <Icon slot="skill-logo" name="mdi:bike" />
+      </SkillLogo>
+      <SkillLogo name="Swimming">
+        <Icon slot="skill-logo" name="mdi:swim" />
+      </SkillLogo>
+      <SkillLogo name="Martial Arts">
+        <Icon slot="skill-logo" name="mdi:martial-arts" />
+      </SkillLogo>
+      <SkillLogo name="Via ferrata">
+        <Icon slot="skill-logo" name="map:climbing" />
+      </SkillLogo>
+      <SkillLogo name="Hiking">
+        <Icon slot="skill-logo" name="mdi:hiking" />
+      </SkillLogo>
+      <SkillLogo name="Hanging out">
+        <Icon slot="skill-logo" name="mdi:party-popper" />
+      </SkillLogo>
+      <SkillLogo name="Cooking">
+        <Icon slot="skill-logo" name="mdi:cook" />
+      </SkillLogo>
+    </div>
+  </section>
+
+  <Line />
+
+  <section id="hobbies-photos">
+    <h1>Some pictures</h1>
 
     <h2>Bike</h2>
     <div class="hobby">
@@ -280,102 +309,43 @@ const defaultWidthPX = 512;
   </section>
 </Layout>
 
-<style>
-  h1,
-  h2 {
-    text-align: center;
-  }
-
+<style define:vars={{ gap: "2rem", "flex-basis": "40%", "icon-size": "4rem" }}>
   .inner-links {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 1em;
   }
 
   .bio {
     box-shadow: 0 0 4rem 1rem var(--background);
-
-    padding: 1rem;
     border-radius: 0.5rem;
+    padding: 1rem;
     font-family: "Courier New", Courier, monospace;
     color: #f8f8f2;
-    overflow-x: auto;
   }
 
-  #me {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
+  #my-info {
+    min-width: min(460px, 100%);
+    align-items: center;
+    justify-content: space-between;
 
-    .photo,
-    #my-info {
-      opacity: 0;
-      transition: all 0.5s ease-in-out;
-      &.appear {
-        opacity: 1;
-      }
+    * {
+      margin: 0;
+      text-align: center;
     }
+  }
 
-    .photo {
-      flex: 1 1 40%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      transform: translateX(-100%);
+  .links {
+    --gap: 1rem !important;
+    width: 100%;
+    justify-content: space-evenly;
+  }
 
-      &.appear {
-        transform: translateX(0);
-      }
-    }
-
-    #my-info {
-      min-width: min(460px, 100%);
-      flex: 1 1 calc(60% - 2rem);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-
-      h1,
-      h2,
-      h3,
-      & > div {
-        text-align: center;
-        margin: 0;
-        width: 100%;
-      }
-    }
-
-    .links {
-      width: 100%;
-      display: flex;
-      justify-content: space-evenly;
-    }
-
-    .links svg {
-      width: 3rem;
-      height: 3rem;
-    }
-
-    #cv-link {
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .photo > img {
-      width: 400px;
-      height: auto;
-      border-radius: 50%;
-      max-width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      box-shadow: 0 0 4rem 0rem var(--text-color);
-    }
+  .photo > img {
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    box-shadow: 0 0 4rem 0rem var(--text-color);
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
   }
 
   #education {
@@ -386,14 +356,7 @@ const defaultWidthPX = 512;
   }
 
   .certs {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-  .certs svg {
-    width: 4rem;
-    height: 4rem;
+    /* justify-content: space-evenly; */
   }
 
   .trolling {
@@ -410,8 +373,8 @@ const defaultWidthPX = 512;
       opacity: 0;
 
       img {
-        width: auto;
-        height: 100%;
+        width: 100%;
+        height: auto;
       }
     }
 
@@ -421,7 +384,10 @@ const defaultWidthPX = 512;
     }
   }
 
-  #hobbies {
+  #hobbies-photos {
+    h2 {
+      text-align: center;
+    }
     img {
       max-width: min(512px, 100%);
       width: auto;

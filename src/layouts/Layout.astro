@@ -1,6 +1,6 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import Header from "../components/layout/Header.astro";
 import Favicon from "../images/favicon.svg";
 import OpenGraph from "../images/opengraph.webp";
 import config from "../config.json";
@@ -13,6 +13,8 @@ const { title } = Astro.props;
 ---
 
 <script>
+  import { sequencedTransitions } from "../utils/Transitions";
+
   const header = document.querySelector("header")!; // Select your sticky header
   const headerHeight = header.offsetHeight * 2;
 
@@ -31,6 +33,11 @@ const { title } = Astro.props;
       }
     });
   });
+
+  sequencedTransitions(
+    document.querySelectorAll("#page-header > *")!,
+    "appear",
+  );
 </script>
 
 <html lang="en">
@@ -77,9 +84,11 @@ const { title } = Astro.props;
     --background-light: #3d3d3d;
     --text-color: #eee;
     --padding: 1rem;
+    --header-height: calc(2rem + var(--padding) + 3.5px);
 
     h1 {
       font-size: 4rem;
+      text-align: center;
     }
     h2 {
       font-size: 3rem;
@@ -92,13 +101,6 @@ const { title } = Astro.props;
     h2,
     h3 {
       font-weight: 700;
-    }
-
-    #page-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
     }
   }
 
@@ -136,9 +138,10 @@ const { title } = Astro.props;
     margin: auto;
     padding: var(--padding);
     width: 1024px;
-    max-width: calc(100% - 4rem);
+    max-width: 75vw;
     font-size: 1.5rem;
   }
+
   a {
     color: var(--accent);
     text-decoration: none;
@@ -147,6 +150,50 @@ const { title } = Astro.props;
     &:hover {
       color: var(--accent-light);
       transform: scale(1.1);
+    }
+  }
+
+  .anim-fade-translate {
+    opacity: 0;
+    transform: translateY(100%);
+    transition:
+      opacity 1s ease,
+      transform 1s ease;
+
+    &.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .w-full {
+    width: 100%;
+  }
+
+  svg {
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
+
+  .flex {
+    display: flex;
+    &.row {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--gap);
+    }
+
+    &.column {
+      flex-direction: column;
+      gap: var(--gap);
+    }
+
+    &.center {
+      justify-content: center;
+      align-items: center;
+    }
+    &.with-basis {
+      flex: 1 1 var(--flex-basis);
     }
   }
 </style>

@@ -9,20 +9,28 @@ export default defineConfig({
   integrations: [
     icon({
       include: {
+        map: [
+          "climbing"
+        ],
         mdi: [
           "alternate-email",
           "bike",
           "book-open-variant",
           "car",
+          "cook",
           "first-aid-kit",
           "github",
           "home",
+          "hiking",
           "lambda",
           "link-variant",
           "linkedin",
+          "martial-arts",
           "menu",
           "menu-left",
+          "party-popper",
           "rabbit",
+          "swim",
           "twitter",
         ],
         logos: [

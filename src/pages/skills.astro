@@ -1,26 +1,17 @@
 ---
 import { Icon } from "astro-icon/components";
-import InlineCode from "../components/InlineCode.astro";
+import InlineCode from "../components/elements/InlineCode.astro";
 import Line from "../components/elements/Line.astro";
-import SkillCard from "../components/SkillCard.astro";
-import SkillLogo from "../components/SkillLogo.astro";
+import SkillCard from "../components/layout/SkillCard.astro";
+import SkillLogo from "../components/layout/SkillLogo.astro";
 import Layout from "../layouts/Layout.astro";
 import Link from "../components/elements/Link.astro";
 ---
 
-<script>
-  import { sequencedTransitions } from "../utils/Transitions";
-
-  sequencedTransitions(
-    document.querySelectorAll("#page-header > *")!,
-    "appear",
-  );
-</script>
-
 <Layout title="My skills">
   <section slot="hero" id="page-header">
-    <h1 id="page-title">My skills</h1>
-    <div class="inner-links" id="skill-links">
+    <h1 id="page-title" class="anim-fade-translate">My skills</h1>
+    <div class="flex row anim-fade-translate" id="skill-links">
       <Link link="#main-skills" kind={"outline"}>Main Skills</Link>
       <Link link="#other-skills" kind={"outline"}>Other Skills</Link>
     </div>
@@ -150,9 +141,9 @@ import Link from "../components/elements/Link.astro";
       <p>
         One day I ended up using 450GB (out of 500GB) of disk space with only
         Docker images. That's where I learned about the necessity of regularly
-        cleaning the cache and having multi-stage <InlineCode
-          >Dockerfile</InlineCode
-        > (it took ~15 minutes to clear the cache 💀)
+        cleaning the cache and having multi-stage
+        <InlineCode>Dockerfile</InlineCode>
+        (it took ~15 minutes to clear the cache 💀)
       </p>
     </SkillCard>
   </section>
@@ -168,7 +159,7 @@ import Link from "../components/elements/Link.astro";
     </p>
 
     <!-- <h3>Languages</h3> -->
-    <div class="other-skills">
+    <div class="other-skills flex row">
       <SkillLogo name="Terraform">
         <Icon slot="skill-logo" name="logos:terraform-icon" />
       </SkillLogo>
@@ -178,7 +169,7 @@ import Link from "../components/elements/Link.astro";
     </div>
 
     <!-- <h3>Frontend Frameworks</h3> -->
-    <div class="other-skills">
+    <div class="other-skills flex row">
       <SkillLogo name="React">
         <Icon slot="skill-logo" name="logos:react" />
       </SkillLogo>
@@ -191,7 +182,7 @@ import Link from "../components/elements/Link.astro";
     </div>
 
     <!-- <h3>HTTP Protocols</h3> -->
-    <div class="other-skills">
+    <div class="other-skills flex row">
       <SkillLogo name="gRPC">
         <Icon slot="skill-logo" name="logos:grpc" />
       </SkillLogo>
@@ -204,7 +195,7 @@ import Link from "../components/elements/Link.astro";
     </div>
 
     <!-- <h3>Cloud</h3> -->
-    <div class="other-skills">
+    <div class="other-skills flex row">
       <SkillLogo name="Kibana">
         <Icon slot="skill-logo" name="logos:kibana" />
       </SkillLogo>
@@ -220,7 +211,7 @@ import Link from "../components/elements/Link.astro";
     </div>
 
     <!-- <h3>Not relevant, but pretty 🙂</h3> -->
-    <div class="other-skills">
+    <div class="other-skills flex row">
       <SkillLogo name="Linux">
         <Icon slot="skill-logo" name="logos:linux-tux" />
       </SkillLogo>
@@ -234,49 +225,21 @@ import Link from "../components/elements/Link.astro";
   </section>
 </Layout>
 
-<style>
-  #page-header > * {
-    opacity: 0;
-    transform: translateY(100%);
-    transition:
-      opacity 0.5s ease,
-      transform 0.5s ease;
-
-    &.appear {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  #page-header .inner-links {
-    display: flex;
-    gap: 2rem;
-  }
-
-  h1,
+<style define:vars={{gap: "2rem", "icon-size": "4rem"}}>
   h2 {
     text-align: center;
   }
 
   .other-skills {
     margin: 4rem 0 4rem 0;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 1rem;
   }
 
   #main-skills p {
-    margin: 0.25em;
+    line-height: 1.5;
+    margin-top: 0.25em;
     max-height: 8em;
     overflow-y: scroll;
     scrollbar-color: var(--accent) var(--background);
-    line-height: 1.5;
-  }
-
-  #main-skills svg,
-  #other-skills svg {
-    width: 4rem;
-    height: 4rem;
   }
 </style>
