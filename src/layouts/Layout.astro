@@ -155,14 +155,12 @@ const { title } = Astro.props;
 
   .anim-fade-translate {
     opacity: 0.001;
-    transform: translateY(100%);
     transition:
       opacity 1s ease,
       transform 1s ease;
 
     &.appear {
       opacity: 1;
-      transform: translateY(0);
     }
   }
 

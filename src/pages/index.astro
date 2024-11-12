@@ -58,9 +58,10 @@ const defaultWidthPX = 512;
 ---
 
 <script>
-  const troll = document.querySelector("#bike-trolling")!;
-  const toggleTroll = () =>
-    troll.querySelector(".troller")!.classList.toggle("reset-troll");
+  const troll = document
+    .querySelector("#bike-trolling")!
+    .querySelector(".troller")!;
+  const toggleTroll = () => troll.classList.toggle("reset-troll");
   troll.addEventListener("mouseenter", toggleTroll);
   troll.addEventListener("mouseleave", toggleTroll);
 
@@ -78,7 +79,7 @@ const defaultWidthPX = 512;
 
 <Layout title={config.index.title}>
   <section slot="hero" id="page-header" class="flex row">
-    <div class="photo flex column center with-basis anim-fade-translate" id="photo-and-links">
+    <div class="photo flex column center with-basis anim-fade-translate">
       <Image fetchpriority="high" src={PP} alt="That's me" loading="eager" width={400} />
       <div class="links flex row">
         {
