@@ -79,7 +79,7 @@ const defaultWidthPX = 512;
 <Layout title={config.index.title}>
   <section slot="hero" id="page-header" class="flex row">
     <div class="photo flex column center with-basis anim-fade-translate" id="photo-and-links">
-      <Image src={PP} alt="That's me" loading="eager" width={400} />
+      <Image fetchpriority="high" src={PP} alt="That's me" loading="eager" width={400} />
       <div class="links flex row">
         {
           socials.map(({ icon, href, id }) => (
