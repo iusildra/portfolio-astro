@@ -26,8 +26,8 @@ const teadsLink = "https://www.teads.com";
     link={teadsLink}
   >
     <span slot="title-more"><a href="#teads-internship">(follow-up)</a></span>
-    <i
-      >Stack:
+    <i>
+      Stack:
       <small>
         Scala, Typescript, Git, GitHub Actions, Terraform, Jenkins, AWS, Grafana
         & Loki, Kibana
@@ -36,20 +36,22 @@ const teadsLink = "https://www.teads.com";
 
     <ul>
       <li>
-        Finishing the encoding service migration
+        Finished the encoding service migration
+      </li>
+      <li>Finishing the cleanup</li>
+      <li>Decommissioned unused services</li>
+      <li>
+        Migrated the CI/CD pipeline from Jenkins to GitHub Actions & adapted it
+        to better match our needs
         <ul>
+          <li>Allows more than one CI at the same time</li>
+          <li>Cached & reuse as much as possible to save CI time</li>
           <li>
-            Unfortunately, there was 1 downtime for 2 days, but a fix was found
-          </li>
-          <li>
-            Improved the observability to help detect this kind of incident
-            sooner
+            Implemented an auto-retry / queue mechanism to cope with a GitHub
+            Actions limitation
           </li>
         </ul>
       </li>
-      <li>Finishing the cleanup</li>
-      <li>Migrating the CI/CD pipeline from Jenkins to GitHub Actions</li>
-      <li>Decommissioning unused services</li>
     </ul>
   </Experience>
 
@@ -203,3 +205,9 @@ const teadsLink = "https://www.teads.com";
     </p>
   </Experience>
 </Layout>
+
+<style>
+  ul {
+    line-height: 1.5;
+  }
+</style>

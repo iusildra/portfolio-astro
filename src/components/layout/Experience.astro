@@ -37,16 +37,24 @@ const { title, company, location, startDate, endDate, img, link, id } =
     margin-top: 0;
     margin-bottom: 0.5em;
   }
+
   .experience {
     display: flex;
     flex-wrap: wrap;
   }
+
   .logo {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     margin-right: 2rem;
+
+    a {
+      position: sticky;
+      top: calc(2 * var(--header-height));
+    }
   }
+
   .job {
     flex: 1 1 0;
   }
