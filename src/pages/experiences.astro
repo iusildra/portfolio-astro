@@ -1,11 +1,13 @@
 ---
+import InlineCode from "../components/elements/InlineCode.astro";
+import Line from "../components/elements/Line.astro";
 import Experience from "../components/layout/Experience.astro";
-import Layout from "../layouts/Layout.astro";
-import Teads from "../images/companies/Teads.svg";
+import MultiExperiences from "../components/layout/MultiExperiences.astro";
+import MultiExperiencesItem from "../components/layout/MultiExperiencesItem.astro";
 import Conecsio from "../images/companies/Conecsio.svg";
 import ScalaCenter from "../images/companies/scala-center.webp";
-import Line from "../components/elements/Line.astro";
-import InlineCode from "../components/elements/InlineCode.astro";
+import Teads from "../images/companies/Teads.svg";
+import Layout from "../layouts/Layout.astro";
 
 const teadsLink = "https://www.teads.com";
 ---
@@ -16,82 +18,71 @@ const teadsLink = "https://www.teads.com";
   </section>
 
   <h1>2024</h1>
-  <Experience
-    title="Software Engineer"
-    company="Teads"
-    location="Montpellier, France"
-    startDate="Sept. 2024"
-    endDate="today"
-    img={Teads}
-    link={teadsLink}
-  >
-    <span slot="title-more"><a href="#teads-internship">(follow-up)</a></span>
+  <MultiExperiences company="Teads" location="MPL", img={Teads}, link={teadsLink}>
+    <MultiExperiencesItem title="Software Engineer @ SSP" startDate="Mar. 2025">
+      <i>
+        <small>
+          Stack: Scala, AWS, Terraform, Grafana
+        </small>
+      </i>
+
+      <ul>
+        <li>👀</li>
+      </ul>
+    </MultiExperiencesItem>
+
+    <MultiExperiencesItem title="Software Engineer @ Format" startDate="Sep. 2024" endDate="Feb. 2025">
     <i>
-      Stack:
       <small>
-        Scala, Typescript, Git, GitHub Actions, Terraform, Jenkins, AWS, Grafana
-        & Loki, Kibana
+        Stack: Scala, Typescript, GitHub Actions, Terraform, Jenkins, AWS, Grafana & Loki, Kibana
       </small>
     </i>
 
     <ul>
       <li>
-        Finished the encoding service migration
-      </li>
-      <li>Finishing the cleanup</li>
-      <li>Decommissioned unused services</li>
-      <li>
-        Migrated the CI/CD pipeline from Jenkins to GitHub Actions & adapted it
-        to better match our needs
+        Migrated the CI pipeline from Jenkins to GitHub Actions & adapted it to better match our needs:
         <ul>
-          <li>Allows more than one CI at the same time</li>
-          <li>Cached & reuse as much as possible to save CI time</li>
-          <li>
-            Implemented an auto-retry / queue mechanism to cope with a GitHub
-            Actions limitation
-          </li>
+          <li>More than one CI at the same time</li>
+          <li>CI time savings</li>
+          <li>Labels to handle PR state</li>
+          <li>Rich job summary to quickly understand why a CI run failed</li>
         </ul>
       </li>
+      <li>
+        Also migrated the deployment pipeline to GitHub Actions
+        <ul>
+          <li>Made several backups (just in case 😅)</li>
+          <li>Updated the deployment script & ensured it was correct in a test environement</li>
+          <li>Merge & deployed with GitHub Actions 🚀</li>
+        </ul>
+      </li>
+      <li>
+        Finished the encoding service migration. With one downtime due to an error in the double-run process. With the help of other people, we were able to find a fix. After that, we were able to clean up the code from the old service and decomission now unused services 🧹
+      </li>
+      <li>
+        Started refactoring (another one!) the way we track ad events (playing, visibility, completion...) to simplify it and make contributions easier.
+      </li>
     </ul>
-  </Experience>
+    </MultiExperiencesItem>
 
-  <Line />
-
-  <Experience
-    title="Assistant Software Engineer"
-    company="Teads"
-    location="Montpellier, France"
-    startDate="Mar. 2024"
-    endDate="Aug.2024"
-    img={Teads}
-    id="teads-internship"
-    link={teadsLink}
-  >
+    <MultiExperiencesItem title="Assistant Software Engineer @ Format" startDate="Mar. 2024" endDate="Aug. 2024">
     <i>
-      <small
-        >Stack: Scala, Typescript, Git, Terraform, Jenkins, AWS, Kibana
+      <small>
+        Stack: Scala, Typescript, Terraform, Jenkins, AWS, Kibana
       </small>
     </i>
     <ul>
       <li>
         Migration of the service we use to encode ads from a legacy,
-        discontinued API to a newer one. Refactored the flow, optimized SQL
-        transactions (batch writes), and parallelized what could be. The goal
-        was to have no downtime during the migration.
-        <ul>
-          <li>
-            Double run between the old and new implementation to find
-            discrepancies
-          </li>
-        </ul>
+        discontinued API to a newer one so we could move forward and introduce newer & more performant encodings. Refactored the flow, optimized SQL transactions (batch writes), and parallelized what could be, with a double run between the old and new implementation to find potential discrepancies
       </li>
       <li>
-        Began cleaning up some "legacy" parts to reduce accidental complexity
-        and improve development speed
+        Began cleaning up some legacy parts of the format (the ads integration & trackings for visibility, duration played...) to reduce accidental complexity and improve development speed, as well as confidence in the codebase. Since it's a critical part of the delivery each change affecting the codebase is going through an A/B test to ensure there's no regression.
       </li>
-      <li>A/B test-driven development</li>
     </ul>
-  </Experience>
+    </MultiExperiencesItem>
+
+  </MultiExperiences>
 
   <Line />
 
@@ -108,20 +99,16 @@ const teadsLink = "https://www.teads.com";
     <ul>
       <li>
         POC on a privacy-preserving storage for clinical data with special
-        encryption methods. The goal is to allow re-using & sharing data easily
-        across multiple actors, only if the patient allows it.
+        encryption methods. The goal is to allow re-using & sharing data easily across multiple actors, only if the patient allows it.
       </li>
       <li>
-        Reviewed several research papers to understand how these methods work,
-        their use cases, limitations, risks, etc.
+        Reviewed several research papers to understand how these methods work, their use cases, limitations, risks, etc.
       </li>
       <li>
         Implemented a small POC with Rust:
         <ul>
           <li>Extremely CPU-efficient</li>
-          <li>
-            A POC isn't used in production, so it was a nice opportunity :)
-          </li>
+          <li>A POC isn't used in production, so it was a nice opportunity :)</li>
         </ul>
       </li>
     </ul>
@@ -142,11 +129,7 @@ const teadsLink = "https://www.teads.com";
   >
     <i><small>Tech: Scala, JVM, Scala-Java interop, Reflection</small></i>
     <p>
-      Improved the Scala debugger in VS Code with a new evaluation mode, using
-      runtime reflection. It is limited to expressions that can be <u
-        >correctly</u
-      > evaluated at runtime (e.g., in the case of an overridden method, using reflection
-      we could pick a method different from what the compiler would have chosen).
+      Improved the Scala debugger in VS Code with a new evaluation mode, using runtime reflection. It is limited to expressions that can be <u>correctly</u> evaluated at runtime (e.g., in the case of an overridden method, using reflection we could pick a method different from what the compiler would have chosen).
     </p>
     <p>The evaluation is performed in 2 phases:</p>
     <ol>
@@ -158,10 +141,7 @@ const teadsLink = "https://www.teads.com";
       <li>Evaluate the expression.</li>
     </ol>
     <p>
-      This evaluation includes a <InlineCode>pre-evaluation</InlineCode> mode. Instead
-      of using the compile-time type of a value, <u>if possible</u> we evaluate it
-      and use its runtime type. It eases the access to runtime information during
-      debugging.
+      This evaluation includes a <InlineCode>pre-evaluation</InlineCode> mode. Instead of using the compile-time type of a value, <u>if possible</u> we evaluate it and use its runtime type. It eases the access to runtime information during debugging.
     </p>
     <p>
       I particularly enjoyed the compiler-related part of the project: ASTs,
@@ -170,8 +150,7 @@ const teadsLink = "https://www.teads.com";
     <p>
       As a secondary project, I helped with the implementation of Hot Code
       Replacement (HCR). This means that we can now launch a debug session,
-      change the code, and just reload the session (so we keep the "progress"
-      made +/-) instead of restarting from the beginning.
+      change the code, and just reload the session (so we keep the "progress" made +/-) instead of restarting from the beginning.
     </p>
   </Experience>
 

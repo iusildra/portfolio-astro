@@ -2,30 +2,25 @@
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 interface Props {
-  title: string;
   company: string;
   location: string;
-  startDate: string;
-  endDate: string;
   img: ImageMetadata;
   link: string;
   id?: string;
 }
 
-const { title, company, location, startDate, endDate, img, link, id } =
+const { company, location, img, link, id } =
   Astro.props;
 ---
 
-<div class="experience" id={id}>
+<div class="experiences" id={id}>
   <div class="logo">
     <a href={link} target="_blank">
       <Image src={img} alt={company} width={150} />
     </a>
   </div>
   <div class="job">
-    <h2>{title}</h2>
-    <h3>{company}, {location}</h3>
-    <h4>{startDate} - {endDate}</h4>
+    <h2>{company} ({location})</h2>
     <slot />
   </div>
 </div>
@@ -38,7 +33,7 @@ const { title, company, location, startDate, endDate, img, link, id } =
     margin-bottom: 0.5em;
   }
 
-  .experience {
+  .experiences {
     display: flex;
     flex-wrap: wrap;
   }

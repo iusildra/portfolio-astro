@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string;
+  startDate: string;
+  endDate?: string;
+  id?: string;
+}
+
+const { title, startDate, endDate, id } =
+  Astro.props;
+---
+
+<div class="single-experience" id={id}>
+  <div class="job">
+    <h3>{title}</h3>
+    <h4>{startDate} - {endDate ?? "today"}</h4>
+    <slot />
+  </div>
+</div>
+
+<style>
+  h2,
+  h3,
+  h4 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
+
+  .single-experience {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .job {
+    flex: 1 1 0;
+  }
+</style>
