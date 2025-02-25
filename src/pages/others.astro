@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import Project from "../components/layout/Project.astro";
+import Canne from "../images/hobbies/CanneDeCombat.webp";
 import Layout from "../layouts/Layout.astro";
-import Canne from "../images/hobbies/CanneDeCombat.webp"
 ---
 
 <Layout title="Others">
@@ -11,9 +11,9 @@ import Canne from "../images/hobbies/CanneDeCombat.webp"
   </section>
 
   <section id="others" class="flex column center">
-    <Project title="Canne de Combat / Bâton de Combat" start="2009">
+    <Project title="Canne de Combat" start="2009">
       <slot slot="image">
-        <a href="https://www.sports.gouv.fr/canne-de-combat-185">
+        <a href="https://www.ffsavate.com/federation/nos-disciplines/canne-de-combat-et-baton/">
           <Image
             src={Canne}
             alt="Canne de Combat"
@@ -30,7 +30,27 @@ import Canne from "../images/hobbies/CanneDeCombat.webp"
       <li>"Double canne": one cane in each hand</li>
       <li>"Canne chausson": single cane with French boxing kicks. It can also be done with 2 canes, but then it's getting hard to parry kicks 😅</li>
       </ul>
+
+      <video controls controlslist="nodownload" poster="/videos/Thumbnail.webp">
+       <source src="/videos/ShowcaseFull.mp4"/>
+      </video>
+      <small class="align-right"><i>Video generated from shots by Cédric Lacage and Riad Idjellidaine</i></small>
+
       <p>There's also the "Bâton de combat" where instead of a cane we use a staff (140cm length, 400g weight). Unfortunately (or not) there are no tournament for this one as it's too dangerous (one hit can bend a fencing helmet)</p>
     </Project>
   </section>
 </Layout>
+
+<style>
+  #others {
+    margin-top: calc(4 * var(--padding));
+  }
+  video {
+    max-width: 100%;
+  }
+
+  .align-right {
+    display: block;
+    text-align: right;
+  }
+</style>

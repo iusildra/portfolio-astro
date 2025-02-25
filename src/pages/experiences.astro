@@ -17,176 +17,194 @@ const teadsLink = "https://www.teads.com";
     <h1 class="anim-fade-translate">Experiences</h1>
   </section>
 
-  <h1>2024</h1>
-  <MultiExperiences company="Teads" location="MPL", img={Teads}, link={teadsLink}>
-    <MultiExperiencesItem title="Software Engineer @ SSP" startDate="Mar. 2025">
+  <section>
+    <h1>2025</h1>
+    <MultiExperiences company="Teads" location="MPL", img={Teads}, link={teadsLink}>
+      <MultiExperiencesItem title="Software Engineer @ SSP" startDate="Mar. 2025">
+        <i>
+          <small>
+            Stack: Scala, AWS, Terraform, Grafana
+          </small>
+        </i>
+
+        <ul>
+          <li>👀</li>
+        </ul>
+      </MultiExperiencesItem>
+
+      <MultiExperiencesItem title="Software Engineer @ Format" startDate="Sep. 2024" endDate="Feb. 2025">
       <i>
         <small>
-          Stack: Scala, AWS, Terraform, Grafana
+          Stack: Scala, Typescript, GitHub Actions, Terraform, Jenkins, AWS, Grafana & Loki, Kibana
         </small>
       </i>
 
       <ul>
-        <li>👀</li>
+        <li>
+          Migrated the CI pipeline from Jenkins to GitHub Actions & adapted it to better match our needs:
+          <ul>
+            <li>More than one CI at the same time</li>
+            <li>Labels to handle PR state</li>
+            <li>Rich job summary to quickly understand why a CI run failed</li>
+          </ul>
+        </li>
+        <li>
+          Migrated the deployment pipeline to GitHub Actions
+          <ul>
+            <li>Made several backups (just in case 😅)</li>
+            <li>A/B tested the new deployment with ramp-ups (ramp-up was useless as it was black or white, it was for my paranoia)</li>
+            <li>Merge & deployed with GitHub Actions 🚀</li>
+          </ul>
+        </li>
+        <li>
+          Finished the encoding service migration. With one downtime due to an error in the double-run process. We were able to find a quick fix. After that, we were able to clean up the code from the old service and decomission now unused services 🧹
+        </li>
+        <li>
+          Started refactoring (another one!) the way we track ad events (playing, visibility, completion...) to simplify it and make contributions easier.
+          <ul>
+            <li>Deduplicated code</li>
+            <li>Usage of native constructs instead of custom ones</li>
+          </ul>
+        </li>
+        <li>
+          Initiated the new way to encode ads, with AWS Mediaconvert. Set up the infrastructure (event bus, queues...) with some observability (dashboard).
+          <ul>
+            <li>Templatize encoding jobs for better reproducibility</li>
+            <li>Versionized templates for quick reverts in case of hazards</li>
+            <li>Started with backward compatible encodings, going towards newer, more performant encodings</li>
+          </ul>
+        </li>
       </ul>
-    </MultiExperiencesItem>
+      </MultiExperiencesItem>
 
-    <MultiExperiencesItem title="Software Engineer @ Format" startDate="Sep. 2024" endDate="Feb. 2025">
-    <i>
-      <small>
-        Stack: Scala, Typescript, GitHub Actions, Terraform, Jenkins, AWS, Grafana & Loki, Kibana
-      </small>
-    </i>
+      <MultiExperiencesItem title="Assistant Software Engineer @ Format" startDate="Mar. 2024" endDate="Aug. 2024">
+      <i>
+        <small>
+          Stack: Scala, Typescript, Terraform, Jenkins, AWS, Kibana
+        </small>
+      </i>
+      <ul>
+        <li>
+          Migration of the service we use to encode ads from a legacy,
+          discontinued API to a newer one so we could move forward and introduce newer & more performant encodings.
+          <ul>
+            <li>Refactored the flow (more straightforward)</li>
+            <li>Optimized SQL transactions (batch writes), and parallelized what could be</li>
+            <li>Double run between the old and new implementation to find potential discrepancies</li>
+          </ul>
+        </li>
+        <li>
+          Began cleaning up some legacy parts of the format (the ads integration & trackings for visibility, duration played...) to reduce accidental complexity and improve development speed, as well as confidence in the codebase. Since it's a critical part of the delivery each change affecting the codebase is going through an A/B test to ensure there's no regression.
+        </li>
+      </ul>
+      </MultiExperiencesItem>
 
-    <ul>
-      <li>
-        Migrated the CI pipeline from Jenkins to GitHub Actions & adapted it to better match our needs:
-        <ul>
-          <li>More than one CI at the same time</li>
-          <li>CI time savings</li>
-          <li>Labels to handle PR state</li>
-          <li>Rich job summary to quickly understand why a CI run failed</li>
-        </ul>
-      </li>
-      <li>
-        Also migrated the deployment pipeline to GitHub Actions
-        <ul>
-          <li>Made several backups (just in case 😅)</li>
-          <li>Updated the deployment script & ensured it was correct in a test environement</li>
-          <li>Merge & deployed with GitHub Actions 🚀</li>
-        </ul>
-      </li>
-      <li>
-        Finished the encoding service migration. With one downtime due to an error in the double-run process. With the help of other people, we were able to find a fix. After that, we were able to clean up the code from the old service and decomission now unused services 🧹
-      </li>
-      <li>
-        Started refactoring (another one!) the way we track ad events (playing, visibility, completion...) to simplify it and make contributions easier.
-      </li>
-    </ul>
-    </MultiExperiencesItem>
+    </MultiExperiences>
 
-    <MultiExperiencesItem title="Assistant Software Engineer @ Format" startDate="Mar. 2024" endDate="Aug. 2024">
-    <i>
-      <small>
-        Stack: Scala, Typescript, Terraform, Jenkins, AWS, Kibana
-      </small>
-    </i>
-    <ul>
-      <li>
-        Migration of the service we use to encode ads from a legacy,
-        discontinued API to a newer one so we could move forward and introduce newer & more performant encodings. Refactored the flow, optimized SQL transactions (batch writes), and parallelized what could be, with a double run between the old and new implementation to find potential discrepancies
-      </li>
-      <li>
-        Began cleaning up some legacy parts of the format (the ads integration & trackings for visibility, duration played...) to reduce accidental complexity and improve development speed, as well as confidence in the codebase. Since it's a critical part of the delivery each change affecting the codebase is going through an A/B test to ensure there's no regression.
-      </li>
-    </ul>
-    </MultiExperiencesItem>
+    <Line />
 
-  </MultiExperiences>
+    <Experience
+      title="End of studies project"
+      company="Conecs.io"
+      location="Montpellier, France"
+      startDate="Dec. 2023"
+      endDate="Feb. 2024"
+      img={Conecsio}
+      link="https://www.conecsio.com"
+    >
+      <i><small>Stack: Rust, Advanced Encryption Methods</small></i>
+      <ul>
+        <li>
+          POC on a privacy-preserving storage for clinical data with special
+          encryption methods. The goal is to allow re-using & sharing data easily across multiple actors, only if the patient allows it.
+        </li>
+        <li>
+          Reviewed several research papers to understand how these methods work, their use cases, limitations, risks, etc.
+        </li>
+        <li>
+          Implemented a small POC with Rust:
+          <ul>
+            <li>Extremely CPU-efficient</li>
+            <li>A POC isn't used in production, so it was a nice opportunity to learn a new language :)</li>
+          </ul>
+        </li>
+      </ul>
+    </Experience>
 
-  <Line />
+    <Line width="80%" />
 
-  <Experience
-    title="End of studies project"
-    company="Conecs.io"
-    location="Montpellier, France"
-    startDate="Dec. 2023"
-    endDate="Feb. 2024"
-    img={Conecsio}
-    link="https://www.conecsio.com"
-  >
-    <i><small>Stack: Rust, Advanced Encryption Methods</small></i>
-    <ul>
-      <li>
-        POC on a privacy-preserving storage for clinical data with special
-        encryption methods. The goal is to allow re-using & sharing data easily across multiple actors, only if the patient allows it.
-      </li>
-      <li>
-        Reviewed several research papers to understand how these methods work, their use cases, limitations, risks, etc.
-      </li>
-      <li>
-        Implemented a small POC with Rust:
-        <ul>
-          <li>Extremely CPU-efficient</li>
-          <li>A POC isn't used in production, so it was a nice opportunity :)</li>
-        </ul>
-      </li>
-    </ul>
-  </Experience>
+    <h1>2023</h1>
+    <Experience
+      title="Software Engineer Intern"
+      company="Scala Center"
+      location="Lausane, Switzerland"
+      startDate="Apri. 2023"
+      endDate="Aug. 2023"
+      img={ScalaCenter}
+      link="https://scala.epfl.ch"
+      id="scala-center-internship"
+    >
+      <i><small>Tech: Scala, JVM, Scala-Java interop, Reflection</small></i>
+      <p>
+        Improved the Scala debugger in VS Code with a new evaluation mode, using runtime reflection. It is limited to expressions that can be <u>correctly</u> evaluated at runtime (e.g., in the case of an overridden method, using reflection we could pick a method different from what the compiler would have chosen).
+      </p>
+      <p>The evaluation is performed in 2 phases:</p>
+      <ol>
+        <li>
+          Validate the expression: correct syntax, evaluable using reflection.
+          Transform the expression AST into a custom ADT representing the
+          expression, that can later be evaluated.
+        </li>
+        <li>Evaluate the expression.</li>
+      </ol>
+      <p>
+        This evaluation includes a <InlineCode>pre-evaluation</InlineCode> mode. Instead of using the compile-time type of a value, <u>if possible</u> we evaluate it and use its runtime type. It eases the access to runtime information during debugging.
+      </p>
+      <p>
+        I particularly enjoyed the compiler-related part of the project: ASTs,
+        type checking, overload resolution, etc.
+      </p>
+      <p>
+        As a secondary project, I helped with the implementation of Hot Code
+        Replacement (HCR). This means that we can now launch a debug session,
+        change the code, and just reload the session (so we keep the "progress" made +/-) instead of restarting from the beginning.
+      </p>
+    </Experience>
 
-  <Line width="80%" />
+    <Line width="80%" />
 
-  <h1>2023</h1>
-  <Experience
-    title="Software Engineer Intern"
-    company="Scala Center"
-    location="Lausane, Switzerland"
-    startDate="Apri. 2023"
-    endDate="Aug. 2023"
-    img={ScalaCenter}
-    link="https://scala.epfl.ch"
-    id="scala-center-internship"
-  >
-    <i><small>Tech: Scala, JVM, Scala-Java interop, Reflection</small></i>
-    <p>
-      Improved the Scala debugger in VS Code with a new evaluation mode, using runtime reflection. It is limited to expressions that can be <u>correctly</u> evaluated at runtime (e.g., in the case of an overridden method, using reflection we could pick a method different from what the compiler would have chosen).
-    </p>
-    <p>The evaluation is performed in 2 phases:</p>
-    <ol>
-      <li>
-        Validate the expression: correct syntax, evaluable using reflection.
-        Transform the expression AST into a custom ADT representing the
-        expression, that can later be evaluated.
-      </li>
-      <li>Evaluate the expression.</li>
-    </ol>
-    <p>
-      This evaluation includes a <InlineCode>pre-evaluation</InlineCode> mode. Instead of using the compile-time type of a value, <u>if possible</u> we evaluate it and use its runtime type. It eases the access to runtime information during debugging.
-    </p>
-    <p>
-      I particularly enjoyed the compiler-related part of the project: ASTs,
-      type checking, overload resolution, etc.
-    </p>
-    <p>
-      As a secondary project, I helped with the implementation of Hot Code
-      Replacement (HCR). This means that we can now launch a debug session,
-      change the code, and just reload the session (so we keep the "progress" made +/-) instead of restarting from the beginning.
-    </p>
-  </Experience>
+    <h1>2022</h1>
+    <Experience
+      title="Assistant Software Engineer"
+      company="Teads"
+      location="Montpellier, France"
+      startDate="Jun. 2022"
+      endDate="Aug. 2022"
+      img={Teads}
+      link={teadsLink}
+    >
+      <i>
+        <small
+          >Stack: Scala, Typescript, gRPC, React, Git, GitHub, Cypress, Jenkins
+        </small>
+      </i>
+      <p>
+        2-month internship where I worked on the V2 of their demo application. I
+        did some backend development with Scala & the Typelevel ecosystem
+        (Cats-effect, doobie...) followed by a more front-end part (in the end I
+        worked on both backend & frontend at the same time).
+      </p>
 
-  <Line width="80%" />
-
-  <h1>2022</h1>
-  <Experience
-    title="Assistant Software Engineer"
-    company="Teads"
-    location="Montpellier, France"
-    startDate="Jun. 2022"
-    endDate="Aug. 2022"
-    img={Teads}
-    link={teadsLink}
-  >
-    <i>
-      <small
-        >Stack: Scala, Typescript, gRPC, React, Git, GitHub, Cypress, Jenkins
-      </small>
-    </i>
-    <p>
-      2-month internship where I worked on the V2 of their demo application. I
-      did some backend development with Scala & the Typelevel ecosystem
-      (Cats-effect, doobie...) followed by a more front-end part (in the end I
-      worked on both backend & frontend at the same time).
-    </p>
-
-    <p>
-      For each feature I developed, I was responsible for the whole lifecycle:
-      code, test, deploy, refactor, fix bugs...
-    </p>
-  </Experience>
+      <p>
+        For each feature I developed, I was responsible for the whole lifecycle:
+        code, test, deploy, refactor, fix bugs...
+      </p>
+    </Experience>
+  </section>
 </Layout>
 
 <style>
-  ul {
+  ul, ol {
     line-height: 1.5;
   }
 </style>
