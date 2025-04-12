@@ -6,34 +6,33 @@ import { Icon } from "astro-icon/components";
 import Line from "../components/elements/Line.astro";
 import Cowsay from "../components/pre/Cowsay.astro";
 import Link from "../components/elements/Link.astro";
-import BikeAlps from "../images/hobbies/bike-alps.webp";
-import BikeBern from "../images/hobbies/bike-bern.webp";
-import BikeCamp from "../images/hobbies/bike-camp.webp";
-import BikeTravel from "../images/hobbies/bike-travel.webp";
-import BikeDam from "../images/hobbies/bike-dam.webp";
-import BikeCanal from "../images/hobbies/bike-canal.webp";
-import Alps from "../images/hobbies/alps.webp";
-import Camp from "../images/hobbies/camp.webp";
+import DoubleParry from "../images/hobbies/ccb/parry+double.webp";
+import VolteDodge from "../images/hobbies/ccb/volte+dodge.webp";
+import BikeAlps from "../images/hobbies/bike/bike-alps.webp";
+import BikeBern from "../images/hobbies/bike/bike-bern.webp";
+import BikeTravel from "../images/hobbies/bike/bike-travel.webp";
+import Alps from "../images/hobbies/hiking/alps.webp";
+import Camp from "../images/hobbies/hiking/camp.webp";
 import Mordor from "../images/hobbies/mordor.webp";
-import MountainGoat from "../images/hobbies/mountain-goat.webp";
-import Shroom from "../images/hobbies/shroom.webp";
-import ViaFerrata from "../images/hobbies/via-ferrata.webp";
-import Wandering from "../images/hobbies/wandering.webp";
-import Astro1 from "../images/hobbies/astro-1.webp";
-import Astro2 from "../images/hobbies/astro-2.webp";
-import Bee1 from "../images/hobbies/bee1.webp";
-import Bee2 from "../images/hobbies/bee2.webp";
-import Cow from "../images/hobbies/cow.webp";
-import Swan from "../images/hobbies/swan.webp";
-import Horses from "../images/hobbies/horses.webp";
-import Buns from "../images/hobbies/buns.webp";
-import Canneles from "../images/hobbies/canneles.webp";
-import Cheesecake from "../images/hobbies/cheesecake.webp";
-import CinamonBalls from "../images/hobbies/cinamon-balls.webp";
-import CinamonRolls from "../images/hobbies/cinamon-rolls.webp";
-import Loukoum from "../images/hobbies/loukoum.webp";
-import Naans from "../images/hobbies/naans.webp";
-import sirup from "../images/hobbies/sirup.webp";
+import MountainGoat from "../images/hobbies/photo/mountain-goat.webp";
+import Shroom from "../images/hobbies/photo/shroom.webp";
+import ViaFerrata from "../images/hobbies/hiking/via-ferrata.webp";
+import Wandering from "../images/hobbies/hiking/wandering.webp";
+import Astro1 from "../images/hobbies/photo/astro-1.webp";
+import Astro2 from "../images/hobbies/photo/astro-2.webp";
+import Bee1 from "../images/hobbies/photo/bee1.webp";
+import Bee2 from "../images/hobbies/photo/bee2.webp";
+import Cow from "../images/hobbies/photo/cow.webp";
+import Swan from "../images/hobbies/photo/swan.webp";
+import Horses from "../images/hobbies/photo/horses.webp";
+import Buns from "../images/hobbies/cooking/buns.webp";
+import Canneles from "../images/hobbies/cooking/canneles.webp";
+import Cheesecake from "../images/hobbies/cooking/cheesecake.webp";
+import CinamonBalls from "../images/hobbies/cooking/cinamon-balls.webp";
+import BaguettesViennoises from "../images/hobbies/cooking/baguettes-viennoises.webp";
+import Loukoum from "../images/hobbies/cooking/loukoum.webp";
+import Naans from "../images/hobbies/cooking/naans.webp";
+import sirup from "../images/hobbies/cooking/sirup.webp";
 import config from "../config.json";
 import SkillLogo from "../components/layout/SkillLogo.astro";
 import Trollface from "../images/Trollface.webp";
@@ -41,7 +40,7 @@ import Experience from "../components/layout/Experience.astro";
 import Polytech from "../images/companies/Polytech.webp";
 import PDF from "../components/elements/PDF.astro";
 import CV from "../pdf/CV_Lucas_NOUGUIER.pdf";
-import globals from "../css/globals.module.css";
+import CcImage from "../components/elements/CcImage.astro";
 
 const socials = [
   { icon: "mdi:github", href: "https://github.com/iusildra" },
@@ -231,18 +230,13 @@ const defaultWidthPX = 512;
   <section id="hobbies-photos">
     <h1>Some pictures</h1>
 
-    <h2>Bike</h2>
+    <h2>Sports</h2>
     <div class="hobby">
-      <Image src={BikeAlps} alt="Bike with the Alps" width={defaultWidthPX} />
-      <Image src={BikeBern} alt="Bike at Bern" width={defaultWidthPX} />
-      <Image src={BikeTravel} alt="Bike loaded" width={defaultWidthPX} />
-      <Image src={BikeCamp} alt="Bike & hammoc" width={defaultWidthPX} />
-      <Image src={BikeDam} alt="Bike on a dam" width={defaultWidthPX} />
-      <Image
-        src={BikeCanal}
-        alt="Bike between waterways"
-        width={defaultWidthPX}
-      />
+      <CcImage src={DoubleParry} alt="Double canne counter-attack stance" title="In double canne, parry with one, ready a strike with the other" width={defaultWidthPX} cls="hobby-2-row" author="@lucien_qui_shoot" link="https://www.instagram.com/lucien_qui_shoot?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="/>
+      <Image src={BikeAlps} alt="Bike with the Alps" width={defaultWidthPX} title="Small trip in the Alps" />
+      <Image src={BikeBern} alt="Bike at Bern" width={defaultWidthPX} title="Lausanne <-> Bern by bike"/>
+      <Image src={BikeTravel} alt="Bike loaded" width={defaultWidthPX} title="Bike with bread 🥖"/>
+      <CcImage src={VolteDodge} alt="Volte dodge" title="In canne de combat, dodge with a turn" width={defaultWidthPX} author="@lucien_qui_shoot" link="https://www.instagram.com/lucien_qui_shoot?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" />
     </div>
 
     <h2>Outdoors</h2>
@@ -284,13 +278,15 @@ const defaultWidthPX = 512;
         alt="Cheesecake"
         width={defaultWidthPX}
         class="hobby-2-row"
+        title="Cheesecake"
       />
-      <Image src={Buns} alt="Buns" width={defaultWidthPX} />
+      <Image src={Buns} alt="Buns" width={defaultWidthPX} title="Hamburger breaed"/>
       <Image
         src={sirup}
         alt="Sirup"
         width={defaultWidthPX}
         class="hobby-2-row"
+        title="Sirup"
       />
       <Image src={Canneles} alt="Canneles" width={defaultWidthPX} />
       <Image
@@ -298,15 +294,17 @@ const defaultWidthPX = 512;
         alt="Cinamon balls"
         width={defaultWidthPX}
         class="hobby-2-row"
+        title="Cinamon balls"
       />
-      <Image src={CinamonRolls} alt="Cinamon rolls" width={defaultWidthPX} />
+      <Image src={BaguettesViennoises} alt="Baguette viennoises" width={defaultWidthPX} title="French 'baguettes viennoises' with chocolate"/>
       <Image
         src={Loukoum}
-        alt="Loukoum"
+        alt="Loukoums"
         width={defaultWidthPX}
         class="hobby-2-row"
+        title="Pistachio loukoums"
       />
-      <Image src={Naans} alt="Naans" width={defaultWidthPX} />
+      <Image src={Naans} alt="Naans" width={defaultWidthPX} title="Naans" />
     </div>
   </section>
 </Layout>

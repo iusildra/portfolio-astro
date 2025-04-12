@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  title?: string;
+  author: string;
+  link: string;
+  width: number;
+  cls?: string;
+}
+const { src, alt, author, link, title, width, cls } = Astro.props;
+---
+
+<div class={cls}>
+  <Image src={src} alt={alt} title={title} width={width}></Image>
+  <small>© <a href={link}>{author}</a></small>
+</div>
+
+<style>
+  small {
+    display: block;
+    width: 100%;
+    text-align: right;
+  }
+</style>

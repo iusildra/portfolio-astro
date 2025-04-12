@@ -1,8 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import Project from "../components/layout/Project.astro";
-import Canne from "../images/hobbies/CanneDeCombat.webp";
+import Canne from "../images/hobbies/ccb/CanneDeCombat.webp";
 import Layout from "../layouts/Layout.astro";
+import CcImage from "../components/elements/CcImage.astro";
 ---
 
 <Layout title="Others">
@@ -13,6 +14,7 @@ import Layout from "../layouts/Layout.astro";
   <section id="others" class="flex column center">
     <Project title="Canne de Combat" start="2009">
       <slot slot="image">
+        <div id="ccb-cc-image">
         <a href="https://www.ffsavate.com/federation/nos-disciplines/canne-de-combat-et-baton/">
           <Image
             src={Canne}
@@ -20,6 +22,8 @@ import Layout from "../layouts/Layout.astro";
             width={256}
           />
         </a>
+        <small class="align-right">© <a href="https://www.instagram.com/paulvnicolas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Paul Nicolas</a></small>
+        </div>
       </slot>
       <p>
         The "Canne de Combat" is a French martial art (of which I'm particularly fond of) where we fight with a "canne" (hence the name 😄). Historically, it was a mean of defense. The standard length is 95cm and the weight between 90-130g for tournament canes, and up to 200g for training ones.
@@ -31,9 +35,9 @@ import Layout from "../layouts/Layout.astro";
       <li>"Canne chausson": single cane with French boxing kicks. It can also be done with 2 canes, but then it's getting hard to parry kicks 😅</li>
       </ul>
 
-      <video controls controlslist="nodownload" poster="/videos/Thumbnail.webp">
-       <source src="/videos/ShowcaseFull.mp4"/>
-      </video>
+      <div class="iframe_16_9">
+        <iframe src="https://www.youtube.com/embed/WCgsWDH2IhQ?origin=iusildra.dev"></iframe>
+      </div>
       <small class="align-right"><i>Video generated from shots by Cédric Lacage and Riad Idjellidaine</i></small>
 
       <p>There's also the "Bâton de combat" where instead of a cane we use a staff (140cm length, 400g weight). Unfortunately (or not) there are no tournament for this one as it's too dangerous (one hit can bend a fencing helmet)</p>
@@ -44,9 +48,6 @@ import Layout from "../layouts/Layout.astro";
 <style>
   #others {
     margin-top: calc(4 * var(--padding));
-  }
-  video {
-    max-width: 100%;
   }
 
   .align-right {
