@@ -24,16 +24,24 @@ import Layout from "../layouts/Layout.astro";
         </a>
       </slot>
       <p>
-        I've already started a few portfolio projects, but I don't think I ever got close to having one single complete page 😅. ScalaIO's website helped me in filling in the lack of knowledge I had in CSS
+        I've already started a few portfolio projects, but I don't think I ever
+        got close to having one single complete page 😅. ScalaIO's website
+        helped me in filling in the lack of knowledge I had in CSS
       </p>
       <p>
-        After having tested <InlineCode>Vue</InlineCode> in some school project (I find it interesting, even though I didn't used TS at that time [what a mistake]) and being fed up with <InlineCode>React</InlineCode> (+/- did the same webiste several times), I wanted to try something new and heard of the "templating frameworks" not long ago.
+        After having tested <InlineCode>Vue</InlineCode> in some school project (I
+        find it interesting, even though I didn't used TS at that time [what a mistake])
+        and being fed up with <InlineCode>React</InlineCode> (+/- did the same webiste
+        several times), I wanted to try something new and heard of the "templating
+        frameworks" not long ago.
       </p>
       <p>
-        So I picked Astro 🚀 (mainly because we already have a few Svelte components at work and I had good echoes about it)
+        So I picked Astro 🚀 (mainly because we already have a few Svelte
+        components at work and I had good echoes about it)
       </p>
       <p>
-        Just putting the preview & link below for consistency with the layout, but I don't think it's necessary ^^
+        Just putting the preview & link below for consistency with the layout,
+        but I don't think it's necessary ^^
       </p>
       <slot slot="footer">
         <a href="/" target="_blank">
@@ -44,32 +52,45 @@ import Layout from "../layouts/Layout.astro";
 
     <Line />
 
-    <Project title="Scala.IO website" start="Dec. 2023" end="today">
+    <Project title="Scala.IO website" start="Dec. 2023" end="Nov. 2025">
       <slot slot="image">
         <a href="https://github.com/SCalaIO/scala.io">
           <Image src={ScalaIOGH} alt="ScalaIO GitHub" width={256} />
         </a>
       </slot>
       <p>
-        I took on the rewrite of the Scala.IO website using <a href="https://www.scala-js.org">Scala.js</a> and <a href="https://laminar.dev">Laminar</a>. The website is deployed on <a href="https://www.clever-cloud.com/fr/home/">Clever Cloud</a>
+        I took on the rewrite of the Scala.IO website using <a
+          href="https://www.scala-js.org">Scala.js</a
+        > and <a href="https://laminar.dev">Laminar</a>. The website is deployed
+        on <a href="https://www.clever-cloud.com/fr/home/">Clever Cloud</a>
       </p>
       <p>
-        Thankfully, the base layout (header, cards) and color choices had already been implemented, otherwise, with my inability to choose one tone and stick to it (though it seems better now with this website 😄)
+        Thankfully, the base layout (header, cards) and color choices had
+        already been implemented, otherwise, with my inability to choose one
+        tone and stick to it (though it seems better now with this website 😄)
       </p>
       <p>
-        The design and data model have been revisited a few times in order to increase maintainability (thanks to other orgs' help and insights) and/or when I discovered better ways to do things. Among the noticeable changes:
+        The design and data model have been revisited a few times in order to
+        increase maintainability (thanks to other orgs' help and insights)
+        and/or when I discovered better ways to do things. Among the noticeable
+        changes:
         <ul>
           <li>
-            Markdown content instead of code-oriented data storage (we don't want to add a database)
+            Markdown content instead of code-oriented data storage (we don't
+            want to add a database)
           </li>
           <li>Switch from relational to document data model</li>
           <li>
-            <InlineCode>grid-template-areas</InlineCode> instead of custom alignment for schedule's tracks (<a href="https://github.com/ScalaIO/scala.io/pull/177">GitHub PR</a>)
+            <InlineCode>grid-template-areas</InlineCode> instead of custom alignment
+            for schedule's tracks (<a
+              href="https://github.com/ScalaIO/scala.io/pull/177">GitHub PR</a
+            >)
           </li>
         </ul>
       </p>
       <p>
-        I won't dare saying that I'll help me land a UI/UX designer, but given the starting point, I'm quite happy with the result 😄
+        I won't dare saying that I'll help me land a UI/UX designer, but given
+        the starting point, I'm quite happy with the result 😄
       </p>
       <slot slot="footer">
         <a href="https://scala.io" target="_blank">
@@ -91,16 +112,24 @@ import Layout from "../layouts/Layout.astro";
         </a>
       </slot>
       <p>
-        The implementation of the Debugger Adapter Protocol (DAP) for VS Code. Basically, what runs when starting a debug session in Scala with VS Code
+        The implementation of the Debugger Adapter Protocol (DAP) for VS Code.
+        Basically, what runs when starting a debug session in Scala with VS Code
       </p>
       <p>
-        I started working on this project during a past <a href="/experiences#scala-center-internship">internship at the Scala Center</a>. I had an amazing time being able to work 100% on this open-source project
+        I started working on this project during a past <a
+          href="/experiences#scala-center-internship"
+          >internship at the Scala Center</a
+        >. I had an amazing time being able to work 100% on this open-source
+        project
       </p>
       <p>
-        I really learned a lot there and discussed very technical & specific concepts that were super interesting. It was refreshing to be able to dive deep into a subject, instead of just scratching the surface
+        I really learned a lot there and discussed very technical & specific
+        concepts that were super interesting. It was refreshing to be able to
+        dive deep into a subject, instead of just scratching the surface
       </p>
       <p>
-        A bit sad not to have the time anymore, with all the conferences, sports & other activities, but I'll manage to find some time to contribute
+        A bit sad not to have the time anymore, with all the conferences, sports
+        & other activities, but I'll manage to find some time to contribute
         again
       </p>
     </Project>
